@@ -5,8 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "remix vite:dev",
-		"build": "remix vite:build",
-		"start": "remix-serve ./build/server/index.js",
+		"build": "NODE_OPTIONS=--max_old_space_size=4096 remix vite:build",
+		"start": "NODE_OPTIONS=--max_old_space_size=4096 remix-serve ./build/server/index.js",
 		"typecheck": "tsc"
 	},
 	"dependencies": {
