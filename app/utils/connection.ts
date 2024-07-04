@@ -5,8 +5,8 @@ import Redis from "ioredis";
 // );
 
 const redis = new Redis(
-	"redis://default:MGZCyhmhg40Iz5ibLztRsHoZhDoRk89HYAzCaChVBR0=@dendrien-dev.redis.cache.windows.net:6380"
- );
+	"rediss://default:MGZCyhmhg40Iz5ibLztRsHoZhDoRk89HYAzCaChVBR0=@dendrien-dev.redis.cache.windows.net:6380"
+);
 
 // const redis = new Redis({
 // 	port: 6380, // Redis port
