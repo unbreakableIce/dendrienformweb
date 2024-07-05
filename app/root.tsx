@@ -48,7 +48,7 @@ export default function App() {
 				<Links />
 			</head>
 			<body className="bg-white/60">
-				<div className="h-screen mx-auto flex flex-col justify-stretch content-center gap-4 bg-[#DADDCD] py-4">
+				<div className="h-screen mx-auto flex flex-col justify-stretch content-center gap-4 bg-[#ffffff] py-4">
 					<div className="sticky top-0 flex flex-wrap items-center justify-center gap-8">
 						<Link
 							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700"
@@ -81,9 +81,8 @@ export default function App() {
 						)}
 					</div>
 					<div
-						className={`overflow-scroll flex-grow ${
-							navigation.state === "loading" ? "loading" : ""
-						}`}
+						className={`overflow-scroll flex-grow ${navigation.state === "loading" ? "loading" : ""
+							}`}
 					>
 						{navigation.state === "loading" && <Spinner />}
 						<Outlet />
