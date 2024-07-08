@@ -48,8 +48,8 @@ export default function App() {
 				<Links />
 			</head>
 			<body className="bg-white/60">
-				<div className="h-screen mx-auto flex flex-col justify-stretch content-center gap-4 bg-[#ffffff] py-4">
-					<div className="sticky top-0 flex flex-wrap items-center justify-center gap-8">
+				<div className="h-screen  flex flex-col justify-stretch content-center gap-4 bg-[#ffffff] py-4">
+					<div className="sticky top-0 flex flex-wrap items-center justify-center gap-8 h-36 ">
 						<Link
 							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700"
 							to="/module"
@@ -61,7 +61,7 @@ export default function App() {
 							<img
 								src="/icons/Full_TransparentBlack.png"
 								alt="Dendrien logo"
-								width="300px"
+								width="200px"
 							/>
 						</Link>
 						{user && (
