@@ -23,7 +23,7 @@ const Container = ({
 	first,
 }: ContainerProps) => {
 	return (
-		<div className="flex flex-col content-center text-center border-2 border-[#454545] bg-[#ffffff] w-full md:w-8/12 mx-auto rounded-xl overflow-clip shadow-xl shadow-gray-500 h-full">
+		<div className="flex flex-col content-center text-center border-2 border-[#454545] bg-[#ffffff] w-full md:w-8/12 mx-auto rounded-xl overflow-y-auto shadow-xl shadow-gray-500 ">
 			<div className="sticky top-0 w-full  bg-[#bcbcbc] py-4 px-0 sm:px-2 md:px-4 lg:px-8 flex justify-between shadow-md shadow-gray-300">
 				<Form method="post">
 					{first ? (
@@ -67,7 +67,7 @@ const Container = ({
 					</button>
 				</Form>
 			</div>
-			<div className="px-4 mt-16 h-full overflow-scroll">{children}</div>
+			<div className="px-4 mt-16 h-full overflow-y-auto">{children}</div>
 		</div>
 	);
 };

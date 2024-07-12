@@ -89,7 +89,7 @@ export default function ModuleForm() {
 					and this exercise is meant to serve <i>your</i> needs.
 				</p>
 				<div className="flex flex-col gap-4 mx-auto justify-center">
-					<h2 className="text-2xl font-bold">Let's begin.</h2>
+					<h2 className="text-2xl font-bold">Click Next to continue.</h2>
 				</div>
 			</div>
 

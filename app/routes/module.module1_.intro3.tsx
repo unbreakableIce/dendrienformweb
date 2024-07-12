@@ -48,8 +48,8 @@ export default function ModuleForm2() {
 					mind. It&apos;s completely up to you. They are <i>your</i> values, after all,
 					and this exercise is meant to serve <i>your</i> needs.
 				</p>
-				<div className="flex flex-col gap-4 mx-auto justify-center">
-					<h2 className="text-2xl font-bold">Let's begin.</h2>
+				<div className="flex flex-col gap-4 mx-auto justify-center pb-3">
+					<h2 className="text-2xl font-bold">Click Next to continue.</h2>
 				</div>
 			</div>
 		</Container>

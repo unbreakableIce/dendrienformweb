@@ -86,8 +86,8 @@ export default function Module2Form1() {
 					strongest traits, then capturing your primary activities,
 					and finally your roles and relationships.
 				</p>
-				<div className="flex flex-col gap-4 mx-auto justify-center">
-					<h2 className="text-2xl font-bold">Let's begin.</h2>
+				<div className="flex flex-col gap-4 mx-auto justify-center pb-3">
+					<h2 className="text-2xl font-bold">Click Next to continue.</h2>
 				</div>
 			</div>
 		</Container>

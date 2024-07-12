@@ -90,7 +90,7 @@ export default function FourthPage() {
 
 					{buttonList}
 				</div>
-				<Form method="post" className="absolute bottom-4 left-0">
+				<Form method="post" className="bottom-4 left-0 p-4">
 					<button
 						name="_action"
 						value="startOver"
