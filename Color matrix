@@ -37,3 +37,8 @@ Blue : #507FB5 rgba(80, 127, 181, 255)
 pink : #BF66A6 rgba(191, 102, 166, 255)
      : #c060b7 rgba(192,96,183,255)
      : #bb61b8 rgba(187,97,184,255)
+
+
+Black and white scheme
+Button Color Background : 050505
+Button Color Text : white

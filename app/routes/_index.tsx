@@ -80,7 +80,7 @@ export default function login() {
 									<input
 										type="text"
 										name="username"
-										className="outline-none border-2 border-[#802E34] rounded-lg px-4 py-2"
+										className="outline-none border-2 border-[#050505] rounded-lg px-4 py-2"
 										placeholder="Enter your username here...."
 									/>
 									{actionData?.error?.username && (
@@ -92,7 +92,7 @@ export default function login() {
 								<div className="flex flex-col gap-2">
 									<label className="font-semibold font-sans">Password</label>
 									<input
-										className="outline-none border-2 border-[#802E34] rounded-lg px-4 py-2"
+										className="outline-none border-2 border-[#050505] rounded-lg px-4 py-2"
 										type="password"
 										placeholder="Enter your password here..."
 										name="password"
@@ -104,7 +104,7 @@ export default function login() {
 									)}
 								</div>
 								<button
-									className="px-4 py-2 rounded-lg bg-[#CF9E97]"
+									className="px-4 py-2 rounded-lg bg-[#cccccc] hover:bg-[#050505] text-white font-semibold"
 									type="submit"
 								>
 									Login
