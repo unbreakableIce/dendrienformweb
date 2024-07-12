@@ -5,7 +5,7 @@ import TextComponent from "~/components/shared/TextComponent";
 
 export const meta: MetaFunction = () => {
 	return [
-		{ title: "signup" },
+		{ title: "Sign Up" },
 		{ name: "description", content: "Welcome to Dendrien form" },
 	];
 };

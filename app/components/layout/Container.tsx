@@ -23,8 +23,8 @@ const Container = ({
 	first,
 }: ContainerProps) => {
 	return (
-		<div className="flex flex-col content-center text-center border-2 border-[#454545] bg-[#F3F3F3] w-full md:w-8/12 mx-auto rounded-xl overflow-clip shadow-xl shadow-gray-500 h-[85vh]">
-			<div className="sticky top-0 w-full  bg-[#b8c1b6] py-4 px-0 sm:px-2 md:px-4 lg:px-8 flex justify-between shadow-md shadow-gray-300">
+		<div className="flex flex-col content-center text-center border-2 border-[#454545] bg-[#ffffff] w-full md:w-8/12 mx-auto rounded-xl overflow-clip shadow-xl shadow-gray-500 h-full">
+			<div className="sticky top-0 w-full  bg-[#bcbcbc] py-4 px-0 sm:px-2 md:px-4 lg:px-8 flex justify-between shadow-md shadow-gray-300">
 				<Form method="post">
 					{first ? (
 						<button
@@ -59,9 +59,8 @@ const Container = ({
 						value="next"
 						type="submit"
 						disabled={!nextEnabled}
-						className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group ${
-							nextEnabled ? "" : "hidden"
-						}`}
+						className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group ${nextEnabled ? "" : "hidden"
+							}`}
 					>
 						<span className="hidden sm:inline text-lg">next</span>
 						<ChevronRightIcon className="h-6 mt-1 group-hover:translate-x-6 transition ease-in-out duration-200" />
