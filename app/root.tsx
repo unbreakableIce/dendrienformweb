@@ -48,20 +48,20 @@ export default function App() {
 				<Links />
 			</head>
 			<body className="bg-white/60">
-				<div className="h-screen  flex flex-col justify-stretch content-center gap-4 bg-[#ffffff] py-4">
-					<div className="sticky top-0 flex flex-wrap items-center justify-center gap-8 h-36 ">
+				<div className="h-screen flex flex-col content-center gap-4 bg-[#ffffff] py-1">
+					<div className="sticky top-0 flex flex-wrap items-center justify-center gap-8 h-28 ">
 						<Link
-							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700"
+							className="px-8 py-12 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700"
 							to="/module"
 						>
-							<HomeIcon className="h-6 mt-1" />
+							<HomeIcon className="h-6" />
 							<span className="hidden sm:inline text-lg">Home</span>
 						</Link>
 						<Link to="/module">
 							<img
-								src="/icons/Full_TransparentBlack.png"
+								src="/icons/Full_TransparentBlack-2.png"
 								alt="Dendrien logo"
-								width="200px"
+								width="175px"
 							/>
 						</Link>
 						{user && (

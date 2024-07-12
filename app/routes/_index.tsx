@@ -41,7 +41,7 @@ export default function login() {
 	return (
 		<div className="flex flex-col justify-center content-center">
 			<div className="max-w-[1240px] mx-auto bg-[#e8e7e6]  px-24 py-8 rounded-xl shadow-xl">
-				<div className="flex flex-col gap-8">
+				<div className="flex flex-col gap-0">
 					<h2 className="text-center text-3xl font-bold">Login</h2>
 					<div className="flex flex-col gap-6">
 						{/* <div className="w-full">
@@ -65,7 +65,7 @@ export default function login() {
 						{/* <div className="block border-b">
 							<p className="mx-auto text-center">or</p>
 						</div> */}
-						<Form method="post" autoComplete="off">
+						<Form method="post" autoComplete="on">
 							{/* <h3 className="text-lg font-semibold text-center">
 								Login with your credentials
 							</h3> */}
