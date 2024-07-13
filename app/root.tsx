@@ -107,8 +107,8 @@ export function ErrorBoundary() {
 			</head>
 			<body className="h-screen w-screen flex flex-wrap justify-center content-center items-center">
 				<div className="flex flex-col gap-8">
-					<h1 className="text-5xl text-center font-bold font-mono text-red-500">
-						There was a big problem!!!
+					<h1 className="text-5xl text-center font-bold font-mono text-black-500">
+						Sorry...
 					</h1>
 					<div className="flex flex-col gap-2">
 						<p className="text-center font-semibold font-sans">
