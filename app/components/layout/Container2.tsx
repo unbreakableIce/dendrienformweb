@@ -22,7 +22,7 @@ const Container2 = ({
 						<button
 							name="_action"
 							value="home"
-							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700"
+							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-white"
 						>
 							<HomeIcon className="h-6 mt-1" />
 							<span className="hidden sm:inline text-lg">Home</span>
@@ -31,7 +31,7 @@ const Container2 = ({
 						<button
 							name="_action"
 							value="back"
-							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group"
+							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-white group"
 						>
 							<ChevronLeftIcon className="h-6 mt-1 group-hover:-translate-x-6 transition ease-in-out duration-200" />
 							<span className="hidden sm:inline text-lg">back</span>
@@ -48,7 +48,7 @@ const Container2 = ({
 						name="_action"
 						value="next"
 						type="submit"
-						className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group`}
+						className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-white group`}
 					>
 						<span className="hidden sm:inline  text-lg">next</span>
 						<ChevronRightIcon className="h-6 mt-1 group-hover:translate-x-6 transition ease-in-out duration-200" />
