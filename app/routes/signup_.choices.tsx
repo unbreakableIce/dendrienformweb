@@ -15,6 +15,8 @@ import { commitSession, getSession } from "~/utils/session.server";
 import { v4 as uuidv4 } from "uuid";
 import redis from "~/utils/connection";
 import { authenticator } from "~/utils/auth.server";
+import * as argon2 from 'argon2';
+
 
 export const action = async ({ request }: ActionFunctionArgs) => {
 	const data = await request.formData();
@@ -61,8 +63,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 				username: credentials.username,
 				email: basics.email,
 				birthdate: basics.birthdate,
-				location: basics.location,
-				password: credentials.password,
+				location: basics.location || '',
+				password: await argon2.hash(credentials.password),
 				gender: basics.gender || "",
 				choice: selection,
 			};
@@ -73,7 +75,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 			const formData = new FormData();
 
 			formData.append("username", user.username);
-			formData.append("password", user.password);
+			formData.append("password", credentials.password);
 
 			await authenticator.authenticate("user-pass", request, {
 				successRedirect: "/home",
@@ -95,6 +97,8 @@ export default function Choice() {
 	const [selected, setselected] = useState<number>(0);
 
 	const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+		console.log(`Choice selected =${e.currentTarget.value}`);
+
 		setselected(parseInt(e.currentTarget.value));
 	};
 

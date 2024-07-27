@@ -3,6 +3,7 @@ import { FormStrategy } from "remix-auth-form";
 import { User, UserSession } from "~/Data/types/user";
 import { sessionStorage } from "./session.server";
 import redis from "./connection";
+import argon2 from 'argon2';
 
 export let authenticator = new Authenticator<UserSession>(sessionStorage);
 
@@ -20,8 +21,10 @@ authenticator.use(
 		if (!Object.keys(userData).length) {
 			throw new Error("User not found");
 		}
+		
+		const passwordIsValid = await argon2.verify(userData.password, password)
 
-		if (user.user.password !== password) {
+		if (!passwordIsValid) {
 			throw new Error("Incorrect password");
 		}
 

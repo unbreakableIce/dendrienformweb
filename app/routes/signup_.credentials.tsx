@@ -8,6 +8,7 @@ import { Form, useActionData, useLoaderData } from "@remix-run/react";
 import Container2 from "~/components/layout/Container2";
 import redis from "~/utils/connection";
 import { commitSession, getSession } from "~/utils/session.server";
+import * as argon2 from 'argon2';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
 	const data = await request.formData();
@@ -30,7 +31,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 		}
 
 		if (password.length < 8) {
-			error.passwordlength = "The password is too short";
+			error.passwordlength = "The password must be at least 8 characters.";
 		}
 
 		if (username === "") {
@@ -42,7 +43,10 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 				"This username already exists, please choose another one";
 		}
 
-		const credentials = { username, password };
+		// const hash = await argon2.hash(password);
+
+		const credentials = { username: username, password: password };
+
 
 		if (Object.values(error).length > 0) {
 			return json({ error });

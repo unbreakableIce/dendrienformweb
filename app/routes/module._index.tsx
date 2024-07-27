@@ -44,16 +44,15 @@ export default function Modules() {
 	return (
 		<div className="mx-auto py-16 flex flex-col justify-start gap-8 content-center flex-wrap w-full max-w-[768px] bg-[#d1cdcb] rounded-xl shadow-md px-8 relative">
 			<h2 className="text-2xl text-center font-bold">
-				Please Choose a Module to Begin
+				Please choose a module.
 			</h2>
 			<Form method="post" className="flex flex-col gap-4">
 				<div className="py-4">
 					<button
 						name="_action"
 						value="module1"
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#F1E6E2] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${
-							d1 ? "" : "bg-[#b8c1b6]"
-						}`}
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d1 ? "" : "bg-[#b7b1ae]"
+							}`}
 					>
 						<div className="flex flex-wrap ">
 							{/*
@@ -79,9 +78,8 @@ export default function Modules() {
 						name="_action"
 						value="module2"
 						disabled={d1}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#F1E6E2] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${
-							d2 ? "" : "bg-[#b8c1b6]"
-						}`}
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d2 ? "" : "bg-[#b7b1ae]"
+							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
 							{/*
@@ -109,9 +107,8 @@ export default function Modules() {
 						name="_action"
 						value="module3"
 						disabled={d2}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#F1E6E2] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${
-							d3 ? "" : "bg-[#b8c1b6]"
-						}`}
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d3 ? "" : "bg-[#b7b1ae]"
+							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
 							{/*
@@ -138,9 +135,8 @@ export default function Modules() {
 						name="_action"
 						value="module4"
 						disabled={d3}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#F1E6E2] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${
-							d4 ? "" : "bg-[#b8c1b6]"
-						}`}
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
+							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
 							{/*	<img

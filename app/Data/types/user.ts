@@ -9,6 +9,7 @@ export type User = {
 	password: string;
 	gender: string;
 	choice: string;
+	id?: string;
 };
 
 export type UserSession = {
