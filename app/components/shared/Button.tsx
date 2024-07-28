@@ -30,9 +30,8 @@ const Button = ({
 				data-tooltip-id={`button-tooltip${tooltipId}`}
 				data-tooltip-content={value.description}
 				onClick={e => onclick(e)}
-				className={`outline outline-2 outline-offset-2 outline-[#677848] rounded-lg px-4 py-2 flex flex-col gap-4 justify-center content-center items-center flex-wrap w-44 ${
-					isSelected ? "bg-[#F1E6E2]" : ""
-				}`}
+				className={`outline outline-2 outline-offset-2 outline-[#000000] rounded-lg px-4 py-2 flex flex-col gap-4 justify-center content-center items-center flex-wrap w-44 ${isSelected ? "bg-[#bcbcbc]" : ""
+					}`}
 				name={value.label}
 				value={value.valueId}
 			>

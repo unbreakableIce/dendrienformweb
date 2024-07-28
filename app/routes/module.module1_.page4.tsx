@@ -94,7 +94,7 @@ export default function FourthPage() {
 					<button
 						name="_action"
 						value="startOver"
-						className="px-4 py-2 border-2 border-black rounded-xl hover:bg-[#b8c1b6]"
+						className="px-4 py-2 border-2 border-black rounded-xl hover:bg-[#d0d0d0]"
 					>
 						Start Over
 					</button>

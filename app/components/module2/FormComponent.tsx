@@ -14,7 +14,7 @@ const FormComponent = ({
 				name="first"
 				placeholder="I am..."
 				defaultValue={data[0] || ""}
-				className="px-4 py-2 outline-none border-2 border-[#802E34] bg-transparent placeholder:text-gray-500 rounded-lg"
+				className="px-4 py-2 outline-none border-2 border-[#000000] bg-transparent placeholder:text-gray-500 rounded-lg"
 			/>
 			<input
 				type="text"
@@ -23,7 +23,7 @@ const FormComponent = ({
 				name="second"
 				placeholder="I am..."
 				defaultValue={data[1] || ""}
-				className="px-4 py-2 outline-none border-2 border-[#802E34] bg-transparent placeholder:text-gray-500 rounded-lg"
+				className="px-4 py-2 outline-none border-2 border-[#000000] bg-transparent placeholder:text-gray-500 rounded-lg"
 			/>
 			<input
 				type="text"
@@ -32,7 +32,7 @@ const FormComponent = ({
 				name="third"
 				placeholder="I am..."
 				defaultValue={data[2] || ""}
-				className="px-4 py-2 outline-none border-2 border-[#802E34] bg-transparent placeholder:text-gray-500 rounded-lg"
+				className="px-4 py-2 outline-none border-2 border-[#000000] bg-transparent placeholder:text-gray-500 rounded-lg"
 			/>
 			<input
 				type="text"
@@ -41,7 +41,7 @@ const FormComponent = ({
 				name="fourth"
 				placeholder="I am..."
 				defaultValue={data[3] || ""}
-				className="px-4 py-2 outline-none border-2 border-[#802E34] bg-transparent placeholder:text-gray-500 rounded-lg"
+				className="px-4 py-2 outline-none border-2 border-[#000000] bg-transparent placeholder:text-gray-500 rounded-lg"
 			/>
 			<input
 				type="text"
@@ -50,7 +50,7 @@ const FormComponent = ({
 				name="fifth"
 				placeholder="I am..."
 				defaultValue={data[4] || ""}
-				className="px-4 py-2 outline-none border-2 border-[#802E34] bg-transparent placeholder:text-gray-500 rounded-lg"
+				className="px-4 py-2 outline-none border-2 border-[#000000] bg-transparent placeholder:text-gray-500 rounded-lg"
 			/>
 		</div>
 	);

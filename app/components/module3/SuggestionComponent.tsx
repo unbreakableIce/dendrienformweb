@@ -68,7 +68,7 @@ const SuggestionComponent = ({
 						name="_action"
 						form={formName}
 						value="next"
-						className="px-4 py-2 rounded-md text-md font-semibold border border-black bg-blue-500 max-w-[300px] mx-auto"
+						className="px-4 py-2 rounded-md text-md font-semibold border border-black bg-[#bcbcbc] max-w-[300px] mx-auto"
 					>
 						Accept
 					</button>
@@ -79,7 +79,7 @@ const SuggestionComponent = ({
 		return (
 			<div key={text} className="my-2 p-2">
 				<textarea
-					className="transition ease-in-out delay-150 p-4 bg-[#F1E6E2] border border-black w-1/2 mx-auto rounded-md read-only:cursor-pointer hover:scale-125 duration-300"
+					className="transition ease-in-out delay-150 p-4 bg-[#e5e7eb] border border-black w-1/2 mx-auto rounded-md read-only:cursor-pointer hover:scale-125 duration-300"
 					name={`suggestion${index}`}
 					form={formName}
 					cols={30}

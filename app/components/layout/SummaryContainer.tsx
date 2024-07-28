@@ -24,7 +24,7 @@ const SummaryContainer = ({
                    }: ContainerProps) => {
     return (
         <div className="flex flex-col content-center text-center border-2 border-[#454545] bg-[#F3F3F3] w-full md:w-8/12 mx-auto rounded-xl overflow-clip shadow-xl shadow-gray-500 h-[85vh]">
-            <div className="sticky top-0 w-full  bg-[#b8c1b6] py-4 px-0 sm:px-2 md:px-4 lg:px-8 flex justify-between shadow-md shadow-gray-300">
+            <div className="sticky top-0 w-full  bg-[#bcbcbc] py-4 px-0 sm:px-2 md:px-4 lg:px-8 flex justify-between shadow-md shadow-gray-300">
                 <Form method="post">
                     {first ? (
                         <button
