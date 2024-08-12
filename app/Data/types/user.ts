@@ -16,3 +16,28 @@ export type UserSession = {
 	user: User;
 	token: string;
 };
+
+export type UserDTO = {
+	userId: string;
+	fullName: string;
+	userName: string;
+	email: string;
+	birthDate: string;
+	location: string;
+	organizationName: string;
+	organizationRole: string;
+	aspirations: string[];
+	values: string[];
+	lastLogin: string;
+	purposeStatement: {
+		edited: boolean;
+		statement: string;
+	};
+
+}
+
+export type UserValues = {
+	value: string;
+	rank: number;
+}
+

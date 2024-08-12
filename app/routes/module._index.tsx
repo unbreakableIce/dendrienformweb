@@ -18,6 +18,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 			return redirect("module3/intro1");
 		case "module4":
 			return redirect("module4/intro1");
+		case "module5":
+			return redirect("module5/intro1");
 	}
 };
 
@@ -153,6 +155,32 @@ export default function Modules() {
 							<p>
 								Your purpose can be expressed in unique ways within the various
 								dimensions of your life.
+							</p>
+						</div>
+					</button>
+				</div>
+				<div className="py-4">
+					<button
+						name="_action"
+						value="module5"
+						disabled={d3}
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
+							}`}
+					>
+						<div className="flex flex-wrap justify-center content-center">
+							{/*	<img
+								src="/icons/lifeSpace.png"
+								alt="LifeSpace Expression"
+								className="rounded-full"
+								width="128px"
+								height="128px"
+							/>
+							*/}
+						</div>
+						<div className="text-left">
+							<h3 className="text-lg font-semibold">Aspirations</h3>
+							<p>
+								Aspirations reflect goals you would like to pursue regarding what you wish to achieve, the kind of person you wish to become, or how you want to connect with others.
 							</p>
 						</div>
 					</button>
