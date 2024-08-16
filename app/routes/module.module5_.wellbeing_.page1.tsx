@@ -6,12 +6,14 @@ import {
 	json,
 	redirect,
 } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import Container from "~/components/layout/Container";
 import TextComponent from "~/components/shared/TextComponent";
 import { authenticator } from "~/utils/auth.server";
 import redis from "~/utils/connection";
 
+//{"mental":"working out","physical":"run 3 miles a session 2x a week","spiritual":"keep praying","reputational":"strong , genuine","vitality":""}
 
 export const action = async ({ request }: ActionFunctionArgs) => {
 	const user = await authenticator.isAuthenticated(request, {
@@ -21,15 +23,15 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 	const formData = await request.formData();
 	const { _action, ...values } = Object.fromEntries(formData);
 	const errors: Record<string, string> = {};
+	const results = formData.get("results") as string;
 
 	if (_action === "back" || _action === "home") {
-		return redirect("/module");
+		return redirect("/module/module5/vocation/page1");
 	}
 
 	if (_action === "next") {
-		await redis.set(`module5:wellbeing:user:${user.user.userId}`, JSON.stringify(values));
-
-		return redirect("/module/module5/page1");
+		await redis.set(`module5:wellbeing:user:${user.user.userId}`, results);
+		return redirect("/module/module5/finish");
 	}
 };
 
@@ -38,88 +40,76 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 		failureRedirect: "/",
 	});
 
-	const previous = request.headers
-		.get("referer")
-		?.split(request.headers.get("host") || "")
-		.at(-1);
+	const values = await redis.get(`module5:wellbeing:user:${user.user.userId}`) || "{}";
+	let jsonWellbeing = JSON.parse(values);
 
-	const [s1, s2, s3, s4] = await Promise.all([
-		redis.lrange(`m2p1#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p2#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p3#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p4#${user.user.userId}`, 0, -1),
-	]);
-
-	if (previous === "/module") {
-		if (s4.length < 0) {
-			return redirect("/module/module2/page5");
-		}
-
-		if (s3.length < 0) {
-			return redirect("/module/module2/page4");
-		}
-
-		if (s2.length < 0) {
-			return redirect("/module/module2/page3");
-		}
-
-		if (s1.length < 0) {
-			return redirect("/module/module2/page2");
-		}
-	}
-
-	return json({ user });
+	return json({ user, jsonWellbeing });
 };
 
 export default function Module5WellbeingPage1() {
+	const { user, jsonWellbeing } = useLoaderData<typeof loader>();
+	const [mental, setMental] = useState(jsonWellbeing.mental || "");
+	const [physical, setPhysical] = useState(jsonWellbeing.physical || "");
+	const [spiritual, setSpiritual] = useState(jsonWellbeing.spiritual || "");
+	const [reputational, setReputational] = useState(jsonWellbeing.reputational || "");
+	const [vitality, setVitality] = useState(jsonWellbeing.vitality || "");
+
 
 	return (
-		<Container first={true} pageTitle="Wellbeing" nextEnabled={true}>
+		<Container
+			first={false}
+			pageTitle="Wellbeing"
+			nextEnabled={true}
+			nextValue={JSON.stringify({ mental, physical, spiritual, reputational, vitality })}
+		>
 			<TextComponent
-				text="The Wellbeing LifeSpace relates to all aspects of your health across the physical, mental, and spiritual dimensions of your life. Read each of the descriptions and questions below, and answer the ones that you feel apply the most to you. You may answer none, some or all of these questions, as it suits you."
+				text="The Wellbeing LifeSpace relates to all aspects of your health across the physical, mental, and spiritual dimensions of your life. Read each of the descriptions and questions below, and answer the ones that you feel apply the most to you. You may answer none, some or all of these questions, as it suits you.  Click the 'Next' button to save your answers and move on to the Community LifeSpace."
 			/>
 			<br />
 			<Form method="post" id="valuesForm">
 
 				<FormControl>
-					<FormLabel>Mental: What practices do you need to incorporate in your life to maintain or improve your mental health?
+					<FormLabel pt={4}>Mental: What practices do you need to incorporate in your life to maintain or improve your mental health?
 					</FormLabel>
 					<Textarea
 						placeholder='Max 250 words'
 						name="mental"
+						value={mental}
+						onChange={(e) => setMental(e.target.value)}
 					/>
-					<FormLabel>Physical: What are your fitness and health goals, and how do you plan to achieve them?
+					<FormLabel pt={4}>Physical: What are your fitness and health goals, and how do you plan to achieve them?
 					</FormLabel>
 					<Textarea
 						name="physical"
 						placeholder='Max 250 words'
+						value={physical}
+						onChange={(e) => setPhysical(e.target.value)}
 					/>
-					<FormLabel>Spiritual: How do you want to cultivate your spiritual wellbeing, and what practices are important to you?
+					<FormLabel pt={4}>Spiritual: How do you want to cultivate your spiritual wellbeing, and what practices are important to you?
 					</FormLabel>
 					<Textarea
 						name="spiritual"
 						placeholder='Max 250 words'
+						value={spiritual}
+						onChange={(e) => setSpiritual(e.target.value)}
 					/>
-					<FormLabel>Reputational: How do you want to be perceived by others, and what actions are you taking to build your reputation?
+					<FormLabel pt={4}>Reputational: How do you want to be perceived by others, and what actions are you taking to build your reputation?
 					</FormLabel>
 					<Textarea
 						name="reputational"
-						placeholder='Max 250 words' />
-					<FormLabel>Vitality: What activities or habits do you need to engage in to maintain your energy and vitality?
+						placeholder='Max 250 words'
+						value={reputational}
+						onChange={(e) => setReputational(e.target.value)}
+					/>
+					<FormLabel pt={4}>Vitality: What activities or habits do you need to engage in to maintain your energy and vitality?
 					</FormLabel>
-					<Textarea
+					<Textarea marginBottom={4}
 						name="vitality"
-						placeholder='Max 250 words' />
+						placeholder='Max 250 words'
+						value={vitality}
+						onChange={(e) => setVitality(e.target.value)}
+					/>
 				</FormControl>
-				<button
-					name="_action"
-					value="next"
-					type="submit"
-					className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-white group`}
-				>
-					<span className="hidden sm:inline  text-lg">Save</span>
-					<ChevronRightIcon className="h-6 mt-1 group-hover:translate-x-6 transition ease-in-out duration-200" />
-				</button>
 			</Form>
 
 		</Container>

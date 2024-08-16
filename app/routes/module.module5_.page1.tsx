@@ -10,40 +10,25 @@ import Container from "~/components/layout/Container";
 import TextComponent from "~/components/shared/TextComponent";
 import { authenticator } from "~/utils/auth.server";
 import redis from "~/utils/connection";
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+	const data = await request.formData();
+
+	const { _action } = Object.fromEntries(data);
+
+	if (_action === "back" || _action === "home") {
+		return redirect("/module");
+	}
+
+	if (_action === "next") {
+		return redirect("/module/module5/community/page1");
+	}
+};
+
 export const loader = async ({ request }: LoaderFunctionArgs) => {
 	const user = await authenticator.isAuthenticated(request, {
 		failureRedirect: "/",
 	});
-
-	const previous = request.headers
-		.get("referer")
-		?.split(request.headers.get("host") || "")
-		.at(-1);
-
-	const [s1, s2, s3, s4] = await Promise.all([
-		redis.lrange(`m2p1#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p2#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p3#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p4#${user.user.userId}`, 0, -1),
-	]);
-
-	if (previous === "/module") {
-		if (s4.length < 0) {
-			return redirect("/module/module2/page5");
-		}
-
-		if (s3.length < 0) {
-			return redirect("/module/module2/page4");
-		}
-
-		if (s2.length < 0) {
-			return redirect("/module/module2/page3");
-		}
-
-		if (s1.length < 0) {
-			return redirect("/module/module2/page2");
-		}
-	}
 
 	return json({ user });
 };

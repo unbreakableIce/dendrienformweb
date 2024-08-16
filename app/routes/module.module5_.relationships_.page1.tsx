@@ -6,7 +6,8 @@ import {
 	json,
 	redirect,
 } from "@remix-run/node";
-import { Form } from "@remix-run/react";
+import { Form, useLoaderData } from "@remix-run/react";
+import { useState } from "react";
 import Container from "~/components/layout/Container";
 import TextComponent from "~/components/shared/TextComponent";
 import { authenticator } from "~/utils/auth.server";
@@ -21,15 +22,15 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 	const formData = await request.formData();
 	const { _action, ...values } = Object.fromEntries(formData);
 	const errors: Record<string, string> = {};
+	const results = formData.get("results") as string;
 
 	if (_action === "back" || _action === "home") {
-		return redirect("/module");
+		return redirect("/module/module5/prosperity/page1");
 	}
 
 	if (_action === "next") {
-		await redis.set(`module5:relationships:user:${user.user.userId}`, JSON.stringify(values));
-
-		return redirect("/module/module5/page1");
+		await redis.set(`module5:relationships:user:${user.user.userId}`, results);
+		return redirect("/module/module5/vocation/page1");
 	}
 };
 
@@ -38,88 +39,76 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 		failureRedirect: "/",
 	});
 
-	const previous = request.headers
-		.get("referer")
-		?.split(request.headers.get("host") || "")
-		.at(-1);
+	const values = await redis.get(`module5:relationships:user:${user.user.userId}`) || "{}";
+	let jsonRelationships = JSON.parse(values);
 
-	const [s1, s2, s3, s4] = await Promise.all([
-		redis.lrange(`m2p1#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p2#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p3#${user.user.userId}`, 0, -1),
-		redis.lrange(`m2p4#${user.user.userId}`, 0, -1),
-	]);
-
-	if (previous === "/module") {
-		if (s4.length < 0) {
-			return redirect("/module/module2/page5");
-		}
-
-		if (s3.length < 0) {
-			return redirect("/module/module2/page4");
-		}
-
-		if (s2.length < 0) {
-			return redirect("/module/module2/page3");
-		}
-
-		if (s1.length < 0) {
-			return redirect("/module/module2/page2");
-		}
-	}
-
-	return json({ user });
+	return json({ user, jsonRelationships });
 };
 
 export default function Module5RelationshipsPage1() {
+	const { user, jsonRelationships } = useLoaderData<typeof loader>();
+	const [romanticPartner, setRomanticPartner] = useState(jsonRelationships.romanticPartner || "");
+	const [closeFriends, setCloseFriends] = useState(jsonRelationships.closeFriends || "");
+	const [acquaintances, setAcquaintances] = useState(jsonRelationships.acquaintances || "");
+	const [immediateFamily, setImmediateFamily] = useState(jsonRelationships.immediateFamily || "");
+	const [extendedFamily, setExtendedFamily] = useState(jsonRelationships.extendedFamily || "");
+
 
 	return (
-		<Container first={true} pageTitle="Relationships" nextEnabled={true}>
+		<Container
+			first={false}
+			pageTitle="Relationships"
+			nextEnabled={true}
+			nextValue={JSON.stringify({ romanticPartner, closeFriends, acquaintances, immediateFamily, extendedFamily })}
+		>
 			<TextComponent
-				text="The Relationships LifeSpace relates to your primary connections to others, including family, friends, romantic partners, and acquaintances. Read each of the descriptions and questions below, and answer the ones that you feel apply the most to you. You may answer none, some or all of these questions, as it suits you."
+				text="The Relationships LifeSpace relates to your primary connections to others, including family, friends, romantic partners, and acquaintances. Read each of the descriptions and questions below, and answer the ones that you feel apply the most to you. You may answer none, some or all of these questions, as it suits you. Clicking 'Next' will save your answers and take you to the Vocations LifeSpace."
 			/>
 			<br />
 			<Form method="post" id="valuesForm">
 
 				<FormControl>
-					<FormLabel>Romantic partner(s): What qualities do you value in a romantic partner, and what kind of relationship do you aspire to have? If you already have a partner, how can you help them pursue what’s important to them and deepen your relationship?
+					<FormLabel pt={4}>Romantic partner(s): What qualities do you value in a romantic partner, and what kind of relationship do you aspire to have? If you already have a partner, how can you help them pursue what’s important to them and deepen your relationship?
 					</FormLabel>
 					<Textarea
 						placeholder='Max 250 words'
 						name="romanticPartner"
+						value={romanticPartner}
+						onChange={(e) => setRomanticPartner(e.target.value)}
 					/>
-					<FormLabel>Close friends: What kind of support and qualities do you seek in your close friendships? In what ways do you want to be a better friend to others?
+					<FormLabel pt={4}>Close friends: What kind of support and qualities do you seek in your close friendships? In what ways do you want to be a better friend to others?
 					</FormLabel>
 					<Textarea
 						name="closeFriends"
 						placeholder='Max 250 words'
+						value={closeFriends}
+						onChange={(e) => setCloseFriends(e.target.value)}
 					/>
-					<FormLabel>Acquaintances: How would you like to expand your network of acquaintances, and what value do you hope to gain from these connections?
+					<FormLabel pt={4}>Acquaintances: How would you like to expand your network of acquaintances, and what value do you hope to gain from these connections?
 					</FormLabel>
 					<Textarea
 						name="acquaintances"
 						placeholder='Max 250 words'
+						value={acquaintances}
+						onChange={(e) => setAcquaintances(e.target.value)}
 					/>
-					<FormLabel>Immediate family: What are your goals for your immediate family relationships, and how do you plan to strengthen them?
+					<FormLabel pt={4}>Immediate family: What are your goals for your immediate family relationships, and how do you plan to strengthen them?
 					</FormLabel>
 					<Textarea
 						name="immediateFamily"
-						placeholder='Max 250 words' />
-					<FormLabel>Extended family: How do you wish to engage with your extended family, and what role do you see them playing in your life?
+						placeholder='Max 250 words'
+						value={immediateFamily}
+						onChange={(e) => setImmediateFamily(e.target.value)}
+					/>
+					<FormLabel pt={4}>Extended family: How do you wish to engage with your extended family, and what role do you see them playing in your life?
 					</FormLabel>
-					<Textarea
+					<Textarea marginBottom={4}
 						name="extendedFamily"
-						placeholder='Max 250 words' />
+						placeholder='Max 250 words'
+						value={extendedFamily}
+						onChange={(e) => setExtendedFamily(e.target.value)}
+					/>
 				</FormControl>
-				<button
-					name="_action"
-					value="next"
-					type="submit"
-					className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-white group`}
-				>
-					<span className="hidden sm:inline  text-lg">Save</span>
-					<ChevronRightIcon className="h-6 mt-1 group-hover:translate-x-6 transition ease-in-out duration-200" />
-				</button>
 			</Form>
 
 		</Container>

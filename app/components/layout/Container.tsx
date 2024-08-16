@@ -59,7 +59,7 @@ const Container = ({
 						value="next"
 						type="submit"
 						disabled={!nextEnabled}
-						className={`px-8 py-2 flex flex-wrap justify-start content-cente gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group ${nextEnabled ? "" : "hidden"
+						className={`px-8 py-2 flex flex-wrap justify-start content-center gap-4 rounded-3xl text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group ${nextEnabled ? "" : "hidden"
 							}`}
 					>
 						<span className="hidden sm:inline text-lg">next</span>
