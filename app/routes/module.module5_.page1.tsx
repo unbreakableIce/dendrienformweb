@@ -52,70 +52,73 @@ export default function Module5Page1() {
 	return (
 		<Container first={true} pageTitle="Aspirations" nextEnabled={true}>
 			<Text fontSize='lg'>
-				Click one of the buttons to navigate to the LifeSpace. Descriptions of each category can be expanded.
+				Click one of the buttons below to navigate to a LifeSpace. Detailed descriptions of each LifeSpace can be displayed by expanding items in the menu below these buttons.
 			</Text>
-			<Stack direction='column' alignItems='center' justifyContent='center' pb={12}>
+			<Stack direction='column' alignItems='center' justifyContent='center' pt={8} pb={12}>
 
 				<Wrap spacing={8} >
 					<WrapItem>
 						<Link to='/module/module5/community/page1'>
-							<Button colorScheme='gray' size='lg'>Community </Button>
+							<Button colorScheme='gray' size='lg' border='2px'
+								borderColor='black'>Community </Button>
 						</Link>
 					</WrapItem>
 					<WrapItem>
 						<Link to='/module/module5/leisure/page1'>
 
-							<Button colorScheme='gray' size='lg' >Leisure</Button>
+							<Button colorScheme='gray' size='lg' border='2px'
+								borderColor='black'>Leisure</Button>
 						</Link>
 
 					</WrapItem>
 					<WrapItem>
 						<Link to='/module/module5/prosperity/page1'>
 
-							<Button colorScheme='gray' size='lg'>Prosperity</Button>
+							<Button colorScheme='gray' size='lg' border='2px'
+								borderColor='black' >Prosperity</Button>
 						</Link>
 					</WrapItem>
 					<WrapItem>
 						<Link to='/module/module5/relationships/page1'>
 
-							<Button colorScheme='gray' size='lg'>Relationships</Button>
+							<Button colorScheme='gray' size='lg' border='2px'
+								borderColor='black'>Relationships</Button>
 						</Link>
 					</WrapItem>
 					<WrapItem>
 						<Link to='/module/module5/vocation/page1'>
 
-							<Button colorScheme='gray' size='lg'>Vocation</Button>
+							<Button colorScheme='gray' size='lg' border='2px'
+								borderColor='black'>Vocation</Button>
 						</Link>
 
 					</WrapItem>
 					<WrapItem>
 						<Link to='/module/module5/wellbeing/page1'>
 
-							<Button colorScheme='gray' size='lg'>WellBeing</Button>
+							<Button colorScheme='gray' size='lg' border='2px'
+								borderColor='black'>WellBeing</Button>
 						</Link>
 
 					</WrapItem>
 				</Wrap>
 			</Stack>
-			{/* <Text fontSize='lg'>
-				Click below for more information on each category
-			</Text> */}
+
 			<Accordion allowToggle>
 				<AccordionItem>
 					<h2>
 						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
-							<Box as='span' flex='1' textAlign='left'>
+							<Box as='span' flex='1' textAlign='center'>
 								Community
 							</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4} style={{ textAlign: 'center' }}>
+					<AccordionPanel pb={4} style={{ textAlign: 'left' }}>
 						<p>
 							How you relate to the place you live and the systems that make it run, such as the physical and natural environment, civic organizations, government, and volunteer or charitable activities.
 						</p>
-						<ul style={{ listStyleType: 'disc', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
-							<li>Built environment</li>
+						<ul style={{ listStyleType: 'disc', paddingTop: '10px', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>							<li>Built environment</li>
 							<li>Civic organizations and charities</li>
 							<li>Government</li>
 							<li>Causes</li>
@@ -126,17 +129,18 @@ export default function Module5Page1() {
 
 				<AccordionItem>
 					<h2>
-						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='left'>
-							Leisure
-						</Box>
+						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
+							<Box as='span' flex='1' textAlign='center'>
+								Leisure
+							</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4}>
+					<AccordionPanel pb={4} style={{ textAlign: 'left' }}>
 						<p>
 							What you do for fun and relaxation, as well as more focused or organized activities that you do to enrich your personal life.
 						</p>
-						<ul style={{ listStyleType: 'disc', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
+						<ul style={{ listStyleType: 'disc', paddingTop: '10px', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
 							<li>Curiosities</li>
 							<li>Hobbies</li>
 							<li>Social Activities</li>
@@ -148,17 +152,18 @@ export default function Module5Page1() {
 
 				<AccordionItem>
 					<h2>
-						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='left'>
-							Prosperity
-						</Box>
+						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>
+							<Box as='span' flex='1' textAlign='center'>
+								Prosperity
+							</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4}>
+					<AccordionPanel pb={4} style={{ textAlign: 'left' }}>
 						<p>
 							Your current finances and your financial goals, as well as other material accumulations.
 						</p>
-						<ul style={{ listStyleType: 'disc', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
+						<ul style={{ listStyleType: 'disc', paddingTop: '10px', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
 							<li>Income</li>
 							<li>Material Possessions</li>
 							<li>Financial Risk</li>
@@ -170,17 +175,17 @@ export default function Module5Page1() {
 
 				<AccordionItem>
 					<h2>
-						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='left'>
+						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='center'>
 							Relationships
 						</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4}>
+					<AccordionPanel pb={4} style={{ textAlign: 'left' }}>
 						<p>
 							Your primary connections to others, including family, friends, romantic partners, and acquaintances.
 						</p>
-						<ul style={{ listStyleType: 'disc', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
+						<ul style={{ listStyleType: 'disc', paddingTop: '10px', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
 							<li>Romantic partner(s)</li>
 							<li>Close Friends</li>
 							<li>Acquaintances</li>
@@ -192,17 +197,17 @@ export default function Module5Page1() {
 
 				<AccordionItem>
 					<h2>
-						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='left'>
+						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='center'>
 							Vocation
 						</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4}>
+					<AccordionPanel pb={4} style={{ textAlign: 'left' }}>
 						<p>
 							The primary role through which you apply yourself, such as a paid job, being a caretaker, or being a student.
 						</p>
-						<ul style={{ listStyleType: 'disc', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
+						<ul style={{ listStyleType: 'disc', paddingTop: '10px', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
 							<li>Achievements</li>
 							<li>Awards</li>
 							<li>Credentials</li>
@@ -214,17 +219,17 @@ export default function Module5Page1() {
 
 				<AccordionItem>
 					<h2>
-						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='left'>
+						<AccordionButton _expanded={{ bg: 'black', color: 'white' }}>							<Box as='span' flex='1' textAlign='center'>
 							Wellbeing
 						</Box>
 							<AccordionIcon />
 						</AccordionButton>
 					</h2>
-					<AccordionPanel pb={4}>
+					<AccordionPanel pb={4} style={{ textAlign: 'left' }}>
 						<p>
 							All aspects of your health across the physical, mental, and spiritual dimensions of your life.
 						</p>
-						<ul style={{ listStyleType: 'disc', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
+						<ul style={{ listStyleType: 'disc', paddingTop: '10px', paddingLeft: '10px', display: 'inline-block', textAlign: 'left' }}>
 							<li>Mental</li>
 							<li>Physical</li>
 							<li>Spiritual</li>
@@ -234,12 +239,6 @@ export default function Module5Page1() {
 					</AccordionPanel>
 				</AccordionItem>
 			</Accordion>
-
-
-
-
-
-
 		</Container>
 	);
 }
