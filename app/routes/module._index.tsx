@@ -20,6 +20,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 			return redirect("module4/intro1");
 		case "module5":
 			return redirect("module5/intro1");
+		case "module6":
+			return redirect("module6/user-report");
 	}
 };
 
@@ -185,6 +187,33 @@ export default function Modules() {
 						</div>
 					</button>
 				</div>
+				<div className="py-4">
+					<button
+						name="_action"
+						value="module6"
+						disabled={d3}
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
+							}`}
+					>
+						<div className="flex flex-wrap justify-center content-center">
+							{/*	<img
+								src="/icons/lifeSpace.png"
+								alt="LifeSpace Expression"
+								className="rounded-full"
+								width="128px"
+								height="128px"
+							/>
+							*/}
+						</div>
+						<div className="text-left">
+							<h3 className="text-lg font-semibold">Individual Report</h3>
+							<p>
+								View your True Ideals, Latent Value Themes, and a summary of your profile.
+							</p>
+						</div>
+					</button>
+				</div>
+
 			</Form>
 		</div>
 	);

@@ -42,7 +42,7 @@ const Container = ({
 							className="px-8 py-2 flex flex-wrap justify-start content-center gap-4 text-gray-800 text-2xl font-bold capitalize hover:text-blue-700 group"
 						>
 							<ChevronLeftIcon className="h-6 mt-1 group-hover:-translate-x-6 transition ease-in-out duration-200" />
-							<span className="hidden sm:inline text-lg">back</span>
+							<span className="hidden sm:inline text-lg">Back</span>
 						</button>
 					)}
 				</Form>

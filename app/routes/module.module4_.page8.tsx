@@ -3,7 +3,7 @@ import {
 	ArrowLongRightIcon,
 	ArrowLongLeftIcon,
 } from "@heroicons/react/24/outline";
-import {ActionFunctionArgs, LoaderFunctionArgs, redirect} from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import SummaryContainer from "~/components/layout/SummaryContainer";
 import { authenticator } from "~/utils/auth.server";
@@ -24,7 +24,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 	}
 
 	if (_action === "next") {
-		return redirect("/module");
+		return redirect("/module/module5/intro1");
 	}
 };
 export default function Page8Module4() {
@@ -36,17 +36,9 @@ export default function Page8Module4() {
 		>
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16  items-center m-32">
 				<h3 className="sm:text-3xl font-bold font-mono text-center">
-					You have now completed all available modules. Congratulations! We hope
-					this experience produced some powerful insights that you will be able
-					to use in your daily life.
+					You have now completed the Lifespace Expressions module. Congratulations! Click Next Module to move on to the next module.
 				</h3>
 
-				<p className="text-center">
-					Expect to hear from us soon, and keep an eye out for new modules in
-					the near future. For now, you can take your Purpose Statement and
-					LifeSpace Expressions and return to the main conference room to
-					discuss these further.
-				</p>
 			</div>
 			{/*
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16 items-center sm:m-32">

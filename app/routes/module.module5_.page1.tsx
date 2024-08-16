@@ -51,6 +51,9 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Module5Page1() {
 	return (
 		<Container first={true} pageTitle="Aspirations" nextEnabled={true}>
+			<Text fontSize='lg'>
+				Click one of the buttons to navigate to the LifeSpace. Descriptions of each category can be expanded.
+			</Text>
 			<Stack direction='column' alignItems='center' justifyContent='center' pb={12}>
 
 				<Wrap spacing={8} >
@@ -94,9 +97,9 @@ export default function Module5Page1() {
 					</WrapItem>
 				</Wrap>
 			</Stack>
-			<Text fontSize='lg'>
+			{/* <Text fontSize='lg'>
 				Click below for more information on each category
-			</Text>
+			</Text> */}
 			<Accordion allowToggle>
 				<AccordionItem>
 					<h2>
