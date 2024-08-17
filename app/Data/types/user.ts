@@ -83,5 +83,6 @@ export type UserDTO = {
 	}
 	lastLogin: string;
 	purposeStatement: { edited: boolean; statement: string; };
+	trueIdeals: string[];
 
 }

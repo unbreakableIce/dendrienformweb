@@ -31,7 +31,7 @@ async function saveOrUpdateUserProfile(userProfile: User) {
   }
 }
 
-async function getAllUserProfiles() : Promise<UserDTO[]> {
+async function getAllUserProfiles(): Promise<UserDTO[]> {
   console.log("Fetching all user profiles...");
 
   try {
@@ -40,23 +40,23 @@ async function getAllUserProfiles() : Promise<UserDTO[]> {
 
     // Map the fetched profiles to UserDTO
     const userDTOs: UserDTO[] = userProfiles.map(profile => ({
-      id: profile.id ,
-      email: profile.email,
-      userId: profile.userId,
-      fullName: profile.fullName,
-      userName: profile.userName,
+      id: profile.id || '',
+      email: profile.email || '',
+      userId: profile.userId || '',
+      fullName: profile.fullName || '',
+      userName: profile.userName || '',
       birthDate: profile.birthDate || '',
       location: profile.location,
       gender: profile.gender || '',
       organizationName: profile.organizationName || '',
       organizationRole: profile.organizationRole || '',
-      aspirations: profile.aspirations || [],
-      values: profile.values || [],
+      aspirations: profile.aspirations || { community: {}, leisure: {}, prosperity: {}, relationships: {}, vocation: {} },
       lastLogin: '',
       purposeStatement: profile.purposeStatement || { edited: false, statement: '' },
-      coreValues: profile.coreValues, 
-      coreCharacteristics: profile.coreCharacteristics, 
-      lifespaceExpressions: profile.lifespaceExpressions
+      coreValues: profile.coreValues || [],
+      coreCharacteristics: profile.coreCharacteristics || [],
+      lifespaceExpressions: profile.lifespaceExpressions || { community: { statement: '', edited: false }, leisure: { statement: '', edited: false }, prosperity: { statement: '', edited: false }, relationships: { statement: '', edited: false }, vocation: { statement: '', edited: false }, wellbeing: { statement: '', edited: false } },
+      trueIdeals: profile.trueIdeals || [],
     }));
 
     return userDTOs; // Convert userProfiles to JSON format
