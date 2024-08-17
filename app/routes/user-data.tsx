@@ -57,12 +57,12 @@ function convertToCSV(users: UserDTO[]): string {
         headers.push(`LSE${i}_edited`);
     }
 
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 30; i++) {
         headers.push(`aspiration${i}`);
     }
 
 
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 2; i++) {
         headers.push(`trueIdeal${i}`);
     }
 
@@ -83,7 +83,7 @@ function convertToCSV(users: UserDTO[]): string {
             user.organizationName,
             user.organizationRole,
             user.aspirations, // Join array elements with a semicolon
-            user.values.join(','), // Join array elements with a semicolon
+           //  user.values.join(','), // Join array elements with a semicolon
             user.lastLogin,
             user.purposeStatement?.edited,
             user.purposeStatement?.statement

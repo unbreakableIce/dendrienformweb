@@ -1,7 +1,5 @@
 import { LoaderFunctionArgs } from "@remix-run/node";
 import OpenAI from "openai";
-import { getAllUserProfiles } from "~/Data/queries/cosmos";
-import { UserDTO } from "~/Data/types/user";
 import redis from "~/utils/connection";
 
 // Utility function to convert JSON to CSV
