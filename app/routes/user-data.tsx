@@ -196,7 +196,7 @@ function convertToCSV(users: UserDTO[]): string {
 
             // true ideal top 2
             user.trueIdeals[0],
-            user.trueIdeals[1],
+            user.trueIdeals[1]
 
         ].join(',');
     });
