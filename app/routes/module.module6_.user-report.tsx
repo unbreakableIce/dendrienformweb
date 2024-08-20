@@ -95,124 +95,123 @@ export default function ModuleIndividualReport() {
     const trueIdeals = JSON.parse(userSummary.trueIdeals);
 
     const top10coreValues = JSON.parse(userSummary.top10coreValues);
+    const aspirationCommunity = JSON.parse(userSummary.aspirationCommunity);
+    const aspirationLeisure = JSON.parse(userSummary.aspirationLeisure);
+    const aspirationProsperity = JSON.parse(userSummary.aspirationProsperity);
+    const aspirationRelationships = JSON.parse(userSummary.aspirationRelationships);
+    const aspirationVocation = JSON.parse(userSummary.aspirationVocation);
+    const aspirationWellbeing = JSON.parse(userSummary.aspirationWellbeing);
 
 
     return (
         <Container first={false} pageTitle={'My Report'} nextEnabled={false} >
-            <Heading mb={4}>Latent Value Themes</Heading>
-            <Text fontSize='l'>
-                1. {latentValueThemes[0]}
-                <br />
-                2. {latentValueThemes[1]}
+            <Heading mb={4} textAlign={"left"} size={'lg'}>
+                Name: {userSummary.userInfo.user.firstname} {userSummary.userInfo.user.lastname}
+            </Heading>
+            <Text fontSize='xl' textAlign={'left'} pb={4}>
+                My root values (what is most important to me in life) are:
             </Text>
-            <Heading mt={8} mb={4}>True Ideals</Heading>
-            <Text fontSize='l'>
-                1. {trueIdeals[0]}
+            <OrderedList textAlign='left' pb={8} >
+                <ListItem>{top10coreValues[0].value.label}</ListItem>
+                <ListItem>{top10coreValues[1].value.label}</ListItem>
+                <ListItem>{top10coreValues[2].value.label}</ListItem>
+                <ListItem>{top10coreValues[3].value.label}</ListItem>
+                <ListItem>{top10coreValues[4].value.label}</ListItem>
+                <ListItem>{top10coreValues[5].value.label}</ListItem>
+                <ListItem>{top10coreValues[6].value.label}</ListItem>
+                <ListItem>{top10coreValues[7].value.label}</ListItem>
+                <ListItem>{top10coreValues[8].value.label}</ListItem>
+                <ListItem>{top10coreValues[9].value.label}</ListItem>
+                <ListItem>{top10coreValues[0].value.label}</ListItem>
+            </OrderedList>
+            <Text fontSize='xl' textAlign={'left'} pb={4}>
+                My core characteristics (how I primarily define and describe myself) are:
+            </Text>
+            <OrderedList textAlign='left' pb={8}>
+                <ListItem>{userSummary.top5coreCharacteristics[0]}</ListItem>
+                <ListItem>{userSummary.top5coreCharacteristics[1]}</ListItem>
+                <ListItem>{userSummary.top5coreCharacteristics[2]}</ListItem>
+                <ListItem>{userSummary.top5coreCharacteristics[3]}</ListItem>
+                <ListItem>{userSummary.top5coreCharacteristics[4]}</ListItem>
+            </OrderedList>
+            <Text fontSize='xl' textAlign={'left'} pb={4}>
+                My life purpose statement is:
+            </Text>
+            <Text fontSize='l' textAlign={'left'} pb={8}>
+                {userSummary.purposeStatement}
+            </Text>
+            <Text fontSize='xl' textAlign={'left'} pb={4}>
+                My life purpose can be expressed across the primary spaces of my life in the following ways:
+            </Text>
+            <UnorderedList textAlign='left' pb={8}>
+                <ListItem>Vocation: {userSummary.lseVocation}</ListItem>
+                <ListItem>Relationships: {userSummary.lseRelationships}</ListItem>
+                <ListItem>Wellbeing: {userSummary.lseWellbeing}</ListItem>
+                <ListItem>Prosperity: {userSummary.lseProsperity}</ListItem>
+                <ListItem>Community: {userSummary.lseCommunity}</ListItem>
+                <ListItem>Leisure: {userSummary.lseLeisure}</ListItem>
+            </UnorderedList>
+            <Text fontSize='xl' textAlign={'left'} pb={4}>
+                These are the aspirations I want to pursue next in my life:
+            </Text>
+            {/*
+            
+            */}
+            <UnorderedList textAlign='left' pb={8}>
+                {Object.keys(aspirationCommunity).map((key, index) => {
+                    const value = aspirationCommunity[key];
+                    return value !== '' ? (
+                        <ListItem key={index}> {value}</ListItem>
+                    ) : null;
+                })}
+
+                {Object.keys(aspirationLeisure).map((key, index) => {
+                    const value = aspirationLeisure[key];
+                    return value !== '' ? (
+                        <ListItem key={index}> {value}</ListItem>
+                    ) : null;
+                })}
+
+                {Object.keys(aspirationProsperity).map((key, index) => {
+                    const value = aspirationProsperity[key];
+                    return value !== '' ? (
+                        <ListItem key={index}> {value}</ListItem>
+                    ) : null;
+                })}
+
+                {Object.keys(aspirationRelationships).map((key, index) => {
+                    const value = aspirationRelationships[key];
+                    return value !== '' ? (
+                        <ListItem key={index}> {value}</ListItem>
+                    ) : null;
+                })}
+
+                {Object.keys(aspirationVocation).map((key, index) => {
+                    const value = aspirationVocation[key];
+                    return value !== '' ? (
+                        <ListItem key={index}> {value}</ListItem>
+                    ) : null;
+                })}
+
+                {Object.keys(aspirationWellbeing).map((key, index) => {
+                    const value = aspirationWellbeing[key];
+                    return value !== '' ? (
+                        <ListItem key={index}> {value}</ListItem>
+                    ) : null;
+                })}
+
+            </UnorderedList>
+
+
+            <Text fontSize='xl' textAlign={'left'} pb={4}>
+                Below are the True Ideals at the heart of who I am as a person. These True Ideals reflect what really drives my life and the essence of my existence on planet Earth:
+            </Text>
+            <Text fontSize='l' textAlign={'left'}>
+                {trueIdeals[0]}
                 <br />
-                2. {trueIdeals[1]}
+                {trueIdeals[1]}
             </Text>
 
-
-            <Card>
-                <CardHeader>
-                    <Heading size='md'>{userSummary.userInfo.user.firstname} {userSummary.userInfo.user.lastname}'s Report</Heading>
-                </CardHeader>
-
-                <CardBody>
-                    <Stack divider={<StackDivider />} spacing='4'>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase'>
-                                Top 10 Core Values
-                            </Heading>
-                            {/* <Text pt='2' fontSize='sm'>
-                                View a summary of all your clients over the last month.
-                            </Text> */}
-                            <OrderedList textAlign='left'>
-                                <ListItem>{top10coreValues[0].value.label}</ListItem>
-                                <ListItem>{top10coreValues[1].value.label}</ListItem>
-                                <ListItem>{top10coreValues[2].value.label}</ListItem>
-                                <ListItem>{top10coreValues[3].value.label}</ListItem>
-                                <ListItem>{top10coreValues[4].value.label}</ListItem>
-                                <ListItem>{top10coreValues[5].value.label}</ListItem>
-                                <ListItem>{top10coreValues[6].value.label}</ListItem>
-                                <ListItem>{top10coreValues[7].value.label}</ListItem>
-                                <ListItem>{top10coreValues[8].value.label}</ListItem>
-                                <ListItem>{top10coreValues[9].value.label}</ListItem>
-                                <ListItem>{top10coreValues[0].value.label}</ListItem>
-                            </OrderedList>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Top 5 Core Characteristics
-                            </Heading>
-                            <OrderedList textAlign='left'>
-                                <ListItem>{userSummary.top5coreCharacteristics[0]}</ListItem>
-                                <ListItem>{userSummary.top5coreCharacteristics[1]}</ListItem>
-                                <ListItem>{userSummary.top5coreCharacteristics[2]}</ListItem>
-                                <ListItem>{userSummary.top5coreCharacteristics[3]}</ListItem>
-                                <ListItem>{userSummary.top5coreCharacteristics[4]}</ListItem>
-
-                            </OrderedList>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Purpose Statement
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.purposeStatement}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Lifespace Expression - Community
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.lseCommunity}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Lifespace Expression - Leisure
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.lseLeisure}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Lifespace Expression - Prosperity
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.lseProsperity}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Lifespace Expression - Relationships
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.lseRelationships}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Lifespace Expression - Vocation
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.lseVocation}
-                            </Text>
-                        </Box>
-                        <Box>
-                            <Heading size='m' textTransform='uppercase' >
-                                Lifespace Expression - Wellbeing
-                            </Heading>
-                            <Text pt='2' fontSize='sm'>
-                                {userSummary.lseWellbeing}
-                            </Text>
-                        </Box>
-                    </Stack>
-                </CardBody>
-            </Card>
         </Container>
     );
 }
