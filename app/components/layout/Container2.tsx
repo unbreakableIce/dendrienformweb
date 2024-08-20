@@ -15,7 +15,7 @@ const Container2 = ({
 	first?: boolean;
 }) => {
 	return (
-		<div className="pb-8 flex flex-col content-center text-center gap-8 border-2 border-[#454545] bg-[#F3F3F3] w-full sm:w-8/12 mx-auto rounded-xl overflow-clip shadow-xl shadow-gray-500 h-[85vh]">
+		<div className="pb-8 flex flex-col content-center text-center gap-8 border-2 border-[#454545] bg-[#F3F3F3] w-full sm:w-8/12 mx-auto rounded-xl overflow-clip shadow-xl shadow-gray-500 ">
 			<div className="sticky top-0 w-full bg-[#bcbcbc] py-4 px-0 sm:px-2 md:px-4 lg:px-8 flex justify-between shadow-md shadow-gray-300 vertical-align:bottom">
 				<Form method="post">
 					{first ? (
@@ -55,7 +55,7 @@ const Container2 = ({
 					</button>
 				</Form>
 			</div>
-			<div className="px-4 h-full overflow-y-scroll">{children}</div>
+			<div className="px-4 h-full overflow-y-scroll ">{children}</div>
 		</div>
 	);
 };
