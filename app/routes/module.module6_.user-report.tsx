@@ -111,7 +111,7 @@ export default function ModuleIndividualReport() {
             <Text fontSize='xl' textAlign={'left'} pb={4}>
                 My root values (what is most important to me in life) are:
             </Text>
-            <OrderedList textAlign='left' pb={8} >
+            <UnorderedList textAlign='left' pb={8} >
                 <ListItem>{top10coreValues[0].value.label}</ListItem>
                 <ListItem>{top10coreValues[1].value.label}</ListItem>
                 <ListItem>{top10coreValues[2].value.label}</ListItem>
@@ -123,17 +123,17 @@ export default function ModuleIndividualReport() {
                 <ListItem>{top10coreValues[8].value.label}</ListItem>
                 <ListItem>{top10coreValues[9].value.label}</ListItem>
                 <ListItem>{top10coreValues[0].value.label}</ListItem>
-            </OrderedList>
+            </UnorderedList>
             <Text fontSize='xl' textAlign={'left'} pb={4}>
                 My core characteristics (how I primarily define and describe myself) are:
             </Text>
-            <OrderedList textAlign='left' pb={8}>
+            <UnorderedList textAlign='left' pb={8}>
                 <ListItem>{userSummary.top5coreCharacteristics[0]}</ListItem>
                 <ListItem>{userSummary.top5coreCharacteristics[1]}</ListItem>
                 <ListItem>{userSummary.top5coreCharacteristics[2]}</ListItem>
                 <ListItem>{userSummary.top5coreCharacteristics[3]}</ListItem>
                 <ListItem>{userSummary.top5coreCharacteristics[4]}</ListItem>
-            </OrderedList>
+            </UnorderedList>
             <Text fontSize='xl' textAlign={'left'} pb={4}>
                 My life purpose statement is:
             </Text>
@@ -206,11 +206,10 @@ export default function ModuleIndividualReport() {
             <Text fontSize='xl' textAlign={'left'} pb={4}>
                 Below are the True Ideals at the heart of who I am as a person. These True Ideals reflect what really drives my life and the essence of my existence on planet Earth:
             </Text>
-            <Text fontSize='l' textAlign={'left'}>
-                {trueIdeals[0]}
-                <br />
-                {trueIdeals[1]}
-            </Text>
+            <UnorderedList textAlign='left' pb={8}>
+                <ListItem>{trueIdeals[0]}</ListItem>
+                <ListItem>{trueIdeals[1]}</ListItem>
+            </UnorderedList>
 
         </Container>
     );
