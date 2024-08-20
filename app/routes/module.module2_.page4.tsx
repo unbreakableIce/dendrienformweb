@@ -128,7 +128,7 @@ export default function ForthModule2() {
 			nextEnabled={clickedValues.filter((x) => x.isSelected).length === 5}
 			nextValue={JSON.stringify(clickedValues)}
 		>
-			<div className="flex flex-col gap-8 px-8">
+			<div className="flex flex-col gap-8 px-8 mb-8">
 				<h3 className="text-2xl text-center">
 					Now, look at the core characteristics that you listed in the previous
 					exercise. Consider this list carefully and{" "}

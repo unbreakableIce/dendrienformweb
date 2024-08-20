@@ -56,7 +56,7 @@ export default function Intro3Module3() {
 
 	return (
 		<Container pageTitle="Why Am I Here?" nextEnabled={true}>
-			<div className="flex flex-col justify-center gap-8 px-4">
+			<div className="flex flex-col justify-center gap-8 px-4 mb-4">
 				<TextComponent
 					text="In a moment, we will generate a draft purpose statement for you,
 					using all the information you have provided so far about your root values and core characteristics. "

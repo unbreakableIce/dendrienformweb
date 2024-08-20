@@ -30,6 +30,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Intro4Module3() {
 	return (
 		<Container pageTitle="Why Am I Here?" nextEnabled={true}>
+			<div className="mb-4">
 			<TextComponent
 				text="On the next page is a draft purpose statement.
 				You can edit it, rewrite it entirely, or ask us to regenerate a new one for you.
@@ -37,6 +38,7 @@ export default function Intro4Module3() {
 				You can ask us to generate up to a total of five purpose statements.
 				 Once you are satisfied with your purpose statement, click ‘Accept.’"
 			/>
+			</div>
 		</Container>
 	);
 }
