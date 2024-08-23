@@ -122,7 +122,6 @@ export default function ModuleIndividualReport() {
                 <ListItem>{top10coreValues[7].value.label}</ListItem>
                 <ListItem>{top10coreValues[8].value.label}</ListItem>
                 <ListItem>{top10coreValues[9].value.label}</ListItem>
-                <ListItem>{top10coreValues[0].value.label}</ListItem>
             </UnorderedList>
             <Text fontSize='xl' textAlign={'left'} pb={4}>
                 My core characteristics (how I primarily define and describe myself) are:
