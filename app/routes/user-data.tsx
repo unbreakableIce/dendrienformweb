@@ -82,7 +82,8 @@ function convertToCSV(users: UserDTO[]): string {
 
         console.log('User:', user);
 
-
+        const coreValues = (user.coreValues || []).concat(Array(14 - (user.coreValues?.length || 0)).fill({ value: '' }));
+        const coreCharacteristics = (user.coreCharacteristics || []).concat(Array(14 - (user.coreCharacteristics?.length || 0)).fill(''));
 
         return [
             user.userId,
@@ -99,36 +100,36 @@ function convertToCSV(users: UserDTO[]): string {
             escapeCsvValue(user.purposeStatement?.statement),
 
             // root values
-            user.coreValues[0].value,
-            user.coreValues[1].value,
-            user.coreValues[2].value,
-            user.coreValues[3].value,
-            user.coreValues[4].value,
-            user.coreValues[5].value,
-            user.coreValues[6].value,
-            user.coreValues[7].value,
-            user.coreValues[8].value,
-            user.coreValues[9].value,
-            user.coreValues[10].value,
-            user.coreValues[11].value,
-            user.coreValues[12].value,
-            user.coreValues[13].value,
-            user.coreValues[14].value,
+            coreValues[0].value,
+            coreValues[1].value,
+            coreValues[2].value,
+            coreValues[3].value,
+            coreValues[4].value,
+            coreValues[5].value,
+            coreValues[6].value,
+            coreValues[7].value,
+            coreValues[8].value,
+            coreValues[9].value,
+            coreValues[10].value,
+            coreValues[11].value,
+            coreValues[12].value,
+            coreValues[13].value,
+            coreValues[14].value,
 
             // root values write
             '', '', '', '', '',
 
             // root value top 10
-            user.coreValues[0].value,
-            user.coreValues[1].value,
-            user.coreValues[2].value,
-            user.coreValues[3].value,
-            user.coreValues[4].value,
-            user.coreValues[5].value,
-            user.coreValues[6].value,
-            user.coreValues[7].value,
-            user.coreValues[8].value,
-            user.coreValues[9].value,
+            coreValues[0].value,
+            coreValues[1].value,
+            coreValues[2].value,
+            coreValues[3].value,
+            coreValues[4].value,
+            coreValues[5].value,
+            coreValues[6].value,
+            coreValues[7].value,
+            coreValues[8].value,
+            coreValues[9].value,
 
             // root value rank top 10
             '', '', '', '', '', '', '', '', '', '',
@@ -137,66 +138,66 @@ function convertToCSV(users: UserDTO[]): string {
             '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
 
             // identity top 5   
-            user.coreCharacteristics[0],
-            user.coreCharacteristics[1],
-            user.coreCharacteristics[2],
-            user.coreCharacteristics[3],
-            user.coreCharacteristics[4],
+            coreCharacteristics[0],
+            coreCharacteristics[1],
+            coreCharacteristics[2],
+            coreCharacteristics[3],
+            coreCharacteristics[4],
 
             // LSE top 6
-            escapeCsvValue(user.lifespaceExpressions.community.statement),
-            user.lifespaceExpressions.community.edited,
-            escapeCsvValue(user.lifespaceExpressions.leisure.statement),
-            user.lifespaceExpressions.leisure.edited,
-            escapeCsvValue(user.lifespaceExpressions.prosperity.statement),
-            user.lifespaceExpressions.prosperity.edited,
-            escapeCsvValue(user.lifespaceExpressions.relationships.statement),
-            user.lifespaceExpressions.relationships.edited,
-            escapeCsvValue(user.lifespaceExpressions.vocation.statement),
-            user.lifespaceExpressions.vocation.edited,
-            escapeCsvValue(user.lifespaceExpressions.wellbeing.statement),
-            user.lifespaceExpressions.wellbeing.edited,
+            escapeCsvValue(user.lifespaceExpressions?.community?.statement || ''),
+            user.lifespaceExpressions?.community?.edited || '',
+            escapeCsvValue(user.lifespaceExpressions?.leisure?.statement || ''),
+            user.lifespaceExpressions?.leisure?.edited || '',
+            escapeCsvValue(user.lifespaceExpressions?.prosperity?.statement || ''),
+            user.lifespaceExpressions?.prosperity?.edited || '',
+            escapeCsvValue(user.lifespaceExpressions?.relationships?.statement || ''),
+            user.lifespaceExpressions?.relationships?.edited || '',
+            escapeCsvValue(user.lifespaceExpressions?.vocation?.statement || ''),
+            user.lifespaceExpressions?.vocation?.edited || '',
+            escapeCsvValue(user.lifespaceExpressions?.wellbeing?.statement || ''),
+            user.lifespaceExpressions?.wellbeing?.edited || '',
 
             // aspirations top 30
-            escapeCsvValue(user.aspirations.community.builtEnvironment),
-            escapeCsvValue(user.aspirations.community.civicOrganizations),
-            escapeCsvValue(user.aspirations.community.government),
-            escapeCsvValue(user.aspirations.community.causes),
-            escapeCsvValue(user.aspirations.community.naturalEnvironment),
+            escapeCsvValue(user.aspirations?.community?.builtEnvironment || ''),
+            escapeCsvValue(user.aspirations?.community?.civicOrganizations || ''),
+            escapeCsvValue(user.aspirations?.community?.government || ''),
+            escapeCsvValue(user.aspirations?.community?.causes || ''),
+            escapeCsvValue(user.aspirations?.community?.naturalEnvironment || ''),
 
-            escapeCsvValue(user.aspirations.leisure.curiosities),
-            escapeCsvValue(user.aspirations.leisure.hobbies),
-            escapeCsvValue(user.aspirations.leisure.socialActivities),
-            escapeCsvValue(user.aspirations.leisure.sports),
-            escapeCsvValue(user.aspirations.leisure.travel),
+            escapeCsvValue(user.aspirations?.leisure?.curiosities || ''),
+            escapeCsvValue(user.aspirations?.leisure?.hobbies || ''),
+            escapeCsvValue(user.aspirations?.leisure?.socialActivities || ''),
+            escapeCsvValue(user.aspirations?.leisure?.sports || ''),
+            escapeCsvValue(user.aspirations?.leisure?.travel || ''),
 
-            escapeCsvValue(user.aspirations.prosperity.income),
-            escapeCsvValue(user.aspirations.prosperity.materialPossessions),
-            escapeCsvValue(user.aspirations.prosperity.financialRisk),
-            escapeCsvValue(user.aspirations.prosperity.wealth),
-            escapeCsvValue(user.aspirations.prosperity.debt),
+            escapeCsvValue(user.aspirations?.prosperity?.income || ''),
+            escapeCsvValue(user.aspirations?.prosperity?.materialPossessions || ''),
+            escapeCsvValue(user.aspirations?.prosperity?.financialRisk || ''),
+            escapeCsvValue(user.aspirations?.prosperity?.wealth || ''),
+            escapeCsvValue(user.aspirations?.prosperity?.debt || ''),
 
-            escapeCsvValue(user.aspirations.relationships.romanticPartner),
-            escapeCsvValue(user.aspirations.relationships.closeFriends),
-            escapeCsvValue(user.aspirations.relationships.acquaintances),
-            escapeCsvValue(user.aspirations.relationships.immediateFamily),
-            escapeCsvValue(user.aspirations.relationships.extendedFamily),
+            escapeCsvValue(user.aspirations?.relationships?.romanticPartner || ''),
+            escapeCsvValue(user.aspirations?.relationships?.closeFriends || ''),
+            escapeCsvValue(user.aspirations?.relationships?.acquaintances || ''),
+            escapeCsvValue(user.aspirations?.relationships?.immediateFamily || ''),
+            escapeCsvValue(user.aspirations?.relationships?.extendedFamily || ''),
 
-            escapeCsvValue(user.aspirations.vocation.achievements),
-            escapeCsvValue(user.aspirations.vocation.awards),
-            escapeCsvValue(user.aspirations.vocation.credentials),
-            escapeCsvValue(user.aspirations.vocation.competencies),
-            escapeCsvValue(user.aspirations.vocation.vocationalNetwork),
+            escapeCsvValue(user.aspirations?.vocation?.achievements || ''),
+            escapeCsvValue(user.aspirations?.vocation?.awards || ''),
+            escapeCsvValue(user.aspirations?.vocation?.credentials || ''),
+            escapeCsvValue(user.aspirations?.vocation?.competencies || ''),
+            escapeCsvValue(user.aspirations?.vocation?.vocationalNetwork || ''),
 
-            escapeCsvValue(user.aspirations.wellbeing.mental),
-            escapeCsvValue(user.aspirations.wellbeing.physical),
-            escapeCsvValue(user.aspirations.wellbeing.spiritual),
-            escapeCsvValue(user.aspirations.wellbeing.reputational),
-            escapeCsvValue(user.aspirations.wellbeing.vitality),
-
+            escapeCsvValue(user.aspirations?.wellbeing?.mental || ''),
+            escapeCsvValue(user.aspirations?.wellbeing?.physical || ''),
+            escapeCsvValue(user.aspirations?.wellbeing?.spiritual || ''),
+            escapeCsvValue(user.aspirations?.wellbeing?.reputational || ''),
+            escapeCsvValue(user.aspirations?.wellbeing?.vitality || ''),
+            
             // true ideal top 2
-            user.trueIdeals[0],
-            user.trueIdeals[1]
+            user.trueIdeals?.[0] || '',
+            user.trueIdeals?.[1] || ''
 
         ].join(',');
     });

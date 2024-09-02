@@ -43,8 +43,6 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 				"This username already exists, please choose another one";
 		}
 
-		// const hash = await argon2.hash(password);
-
 		const credentials = { username: username, password: password };
 
 

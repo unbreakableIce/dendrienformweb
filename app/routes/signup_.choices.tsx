@@ -16,6 +16,7 @@ import { v4 as uuidv4 } from "uuid";
 import redis from "~/utils/connection";
 import { authenticator } from "~/utils/auth.server";
 import * as argon2 from 'argon2';
+import { createUser } from "~/Data/queries/cosmos";
 
 
 export const action = async ({ request }: ActionFunctionArgs) => {
@@ -71,6 +72,24 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
 			// store the hash in redis with the username as key
 			await redis.hset(user.username, user);
+
+			try {
+
+
+				await createUser({
+					email: user.email,
+					password: user.password,
+					userId: user.userId,
+					userName: user.username,
+					fullName: user.firstname + " " + user.lastname,
+					birthDate: user.birthdate,
+					location: user.location,
+					gender: user.gender
+				}
+				);
+			} catch (error) {
+				console.error("Error creating user", error);
+			}
 
 			const formData = new FormData();
 

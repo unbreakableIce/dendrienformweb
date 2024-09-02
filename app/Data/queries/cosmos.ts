@@ -67,5 +67,50 @@ async function getAllUserProfiles(): Promise<UserDTO[]> {
   }
 }
 
+async function createUser(user: {
+  email: string,
+  password: string,
+  userId: string,
+  fullName: string,
+  userName: string,
+  birthDate: string,
+  location: string,
+  gender: string
+}): Promise<UserDTO> {
+  try {
+    console.log("Creating user profile:", user);
+    // Create a new user profile using comonents of UserDTO we have
+    const newUser = {
+      email: user.email,
+      userId: user.userId,
+      fullName: `${user.fullName}`,
+      userName: user.userName,
+      birthDate: user.birthDate || '',
+      location: user.location || '',
+      gender: user.gender || '',
+    }
 
-export { getAllUserProfiles };
+    const { resource: createdProfile } = await container.items.create(newUser);
+    console.log("Created new user profile:", createdProfile);
+
+    // Map the fetched profiles to UserDTO
+    const userDTO: UserDTO = {
+      // id: createdProfile?.id || '',
+      email: createdProfile?.email || '',
+      userId: createdProfile?.userId || '',
+      fullName: createdProfile?.fullName || '',
+      userName: createdProfile?.userName || '',
+      birthDate: createdProfile?.birthDate || '',
+      location: createdProfile?.location,
+      gender: createdProfile?.gender || ''
+    };
+
+    return userDTO; // Convert userProfiles to JSON format
+
+  } catch (error) {
+    console.error("Error saving user information:", error);
+    throw error;
+  }
+}
+
+export { getAllUserProfiles, createUser };
