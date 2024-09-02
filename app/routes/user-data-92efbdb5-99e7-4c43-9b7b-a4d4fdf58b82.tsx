@@ -82,8 +82,8 @@ function convertToCSV(users: UserDTO[]): string {
 
         console.log('User:', user);
 
-        const coreValues = (user.coreValues || []).concat(Array(14 - (user.coreValues?.length || 0)).fill({ value: '' }));
-        const coreCharacteristics = (user.coreCharacteristics || []).concat(Array(14 - (user.coreCharacteristics?.length || 0)).fill(''));
+        const coreValues = (user.coreValues || []).concat(Array(15 - (user.coreValues?.length || 0)).fill({ value: '' }));
+        const coreCharacteristics = (user.coreCharacteristics || []).concat(Array(15 - (user.coreCharacteristics?.length || 0)).fill(''));
 
         return [
             user.userId,
@@ -194,7 +194,7 @@ function convertToCSV(users: UserDTO[]): string {
             escapeCsvValue(user.aspirations?.wellbeing?.spiritual || ''),
             escapeCsvValue(user.aspirations?.wellbeing?.reputational || ''),
             escapeCsvValue(user.aspirations?.wellbeing?.vitality || ''),
-            
+
             // true ideal top 2
             user.trueIdeals?.[0] || '',
             user.trueIdeals?.[1] || ''
