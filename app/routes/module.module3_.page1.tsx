@@ -14,6 +14,7 @@ import { authenticator } from "~/utils/auth.server";
 import redis from "~/utils/connection";
 import SuggestionComponent from "~/components/module3/SuggestionComponent";
 import TextComponent from "~/components/shared/TextComponent";
+import { savePurposeStatement } from "~/Data/queries/cosmos";
 
 export const action = async ({ request }: ActionFunctionArgs) => {
 	const user = await authenticator.isAuthenticated(request, {
@@ -31,6 +32,15 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 	if (_action === "next") {
 		const results = data.get("suggestion0") as string;
 		const result = await redis.set(`m3p1#${user.user.userId}`, results);
+
+		try{
+			//TODO add edited field
+			savePurposeStatement(user.user.userId, results, false);
+		}
+		catch (error) {
+			console.log(error);
+		}
+
 		return redirect("/module/module3/page2");
 	}
 };

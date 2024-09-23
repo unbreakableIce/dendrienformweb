@@ -82,8 +82,23 @@ function convertToCSV(users: UserDTO[]): string {
 
         console.log('User:', user);
 
-        const coreValues = (user.coreValues || []).concat(Array(15 - (user.coreValues?.length || 0)).fill({ value: '' }));
-        const coreCharacteristics = (user.coreCharacteristics || []).concat(Array(15 - (user.coreCharacteristics?.length || 0)).fill(''));
+        let coreValues = (user.coreValues || Array(15).fill({ value: '' }))
+        if (coreValues.length > 15) {
+            coreValues  = coreValues.slice(0, 15) 
+        }
+        if (coreValues.length < 15) {
+            coreValues = coreValues.concat(Array(15 - coreValues.length).fill({ value: '' }))
+        }
+
+
+        let coreCharacteristics = (user.coreCharacteristics || Array(5).fill(''))
+        if (coreCharacteristics.length > 5) {
+            coreCharacteristics = coreCharacteristics.slice(0, 5)
+        }
+        if (coreCharacteristics.length < 5) {
+            coreCharacteristics = coreCharacteristics.concat(Array(5 - coreCharacteristics.length).fill(''))
+        }
+        
 
         return [
             user.userId,
@@ -92,7 +107,7 @@ function convertToCSV(users: UserDTO[]): string {
             user.gender,
             user.email,
             user.birthDate,
-            user.location,
+            escapeCsvValue(user.location),
             user.organizationName,
             user.organizationRole,
             user.lastLogin,

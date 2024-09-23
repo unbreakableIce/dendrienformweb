@@ -67,6 +67,49 @@ async function getAllUserProfiles(): Promise<UserDTO[]> {
   }
 }
 
+async function savePurposeStatement(userId: string, statement: string, edited: boolean) {
+
+  // Check if inputs are not empty
+  if (!userId || !statement || edited === undefined) {
+    console.error("Missing required inputs");
+    return;
+  }
+
+  try {
+    // Query by userId in Cosmos DB
+    const querySpec = {
+      query: "SELECT * FROM c WHERE c.userId = @userId",
+      parameters: [
+        { name: "@userId", value: userId }
+      ]
+    };
+
+    const { resources: results } = await container.items.query(querySpec).fetchAll();
+
+    if (results.length > 0) {
+      const existingProfile = results[0];
+      // Check if the user profile already exists
+
+
+      if (existingProfile) {
+        // Update existing user profile
+        const { resource: updatedProfile } = await container.item(existingProfile.id, existingProfile.userId).replace({
+          ...existingProfile,
+          purposeStatement: {
+            statement,
+            edited
+          }
+        });
+        console.log("Updated user profile:", updatedProfile);
+      } else {
+        console.error("User profile not found:", userId);
+      }
+    }
+  } catch (error) {
+    console.error("Error saving life purpose statement:", error);
+  }
+}
+
 async function createUser(user: {
   email: string,
   password: string,
@@ -113,4 +156,4 @@ async function createUser(user: {
   }
 }
 
-export { getAllUserProfiles, createUser };
+export { getAllUserProfiles, createUser, savePurposeStatement };
