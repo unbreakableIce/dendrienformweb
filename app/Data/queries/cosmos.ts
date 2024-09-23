@@ -67,6 +67,44 @@ async function getAllUserProfiles(): Promise<UserDTO[]> {
   }
 }
 
+async function getUserProfile(userId: string): Promise<UserDTO | undefined> {
+  console.log("Fetching user profile:", userId);
+
+  try {
+    // Query by userId in Cosmos DB
+    const querySpec = {
+      query: "SELECT * FROM c WHERE c.userId = @userId",
+      parameters: [
+        { name: "@userId", value: userId }
+      ]
+    };
+
+    const { resources: results } = await container.items.query(querySpec).fetchAll();
+
+    if (results.length > 0) {
+      const profile = results[0];
+
+      // Map the fetched profile to UserDTO
+      const userDTO: UserDTO = {
+        id: profile.id || '',
+        email: profile.email || '',
+        userId: profile.userId || '',
+        fullName: profile.fullName || '',
+        userName: profile.userName || '',
+        birthDate: profile.birthDate || '',
+        location: profile.location || '',
+      }
+
+      return userDTO;
+    }
+
+    return undefined;
+  } catch (error) {
+    console.error("Error fetching user profile:", error);
+    // throw error;
+  }
+}
+
 async function savePurposeStatement(userId: string, statement: string, edited: boolean) {
 
   // Check if inputs are not empty
@@ -156,4 +194,4 @@ async function createUser(user: {
   }
 }
 
-export { getAllUserProfiles, createUser, savePurposeStatement };
+export { getAllUserProfiles, createUser, savePurposeStatement, getUserProfile };

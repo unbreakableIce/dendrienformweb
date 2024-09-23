@@ -5,6 +5,7 @@ import {
 	redirect,
 } from "@remix-run/node";
 import { useLoaderData, useNavigation } from "@remix-run/react";
+import { getUserProfile } from "~/Data/queries/cosmos";
 import { FormModule } from "~/Data/types/module";
 import Container from "~/components/layout/Container";
 import TextComponent from "~/components/shared/TextComponent";
@@ -36,10 +37,11 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 		?.split(request.headers.get("host") || "")
 		.at(-1);
 
-	const [s1, s2, s3] = await Promise.all([
+	const [s1, s2, s3, userProfile] = await Promise.all([
 		redis.get(`m1p1#${user.user.userId}`),
 		redis.get(`m1p2#${user.user.userId}`),
 		redis.get(`m1p3#${user.user.userId}`),
+		getUserProfile(user.user.userId),
 	]);
 
 	if (previous === "/module") {

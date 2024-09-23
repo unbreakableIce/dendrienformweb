@@ -18,6 +18,7 @@ export type UserSession = {
 };
 
 export type UserDTO = {
+	id?: string;
 	userId: string;
 	gender?: string;
 	fullName: string;
