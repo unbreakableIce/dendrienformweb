@@ -62,8 +62,7 @@ export default function Intro3Module3() {
 					using all the information you have provided so far about your root values and core characteristics. "
 				/>
 				<TextComponent
-					text="You can ask for a new draft by clicking ‘Regenerate,’ and you can also edit any purpose statement that we generate for you. Or simply write your own, if you want.
-					 Once the purpose statement is to your liking, you can accept it and move on to the next module."
+					text="On the next page, you will see three versions of your life purpose statement. Clicking on one will move it to the top box, where you can edit it and accept the edited version, or even replace it entirely with your own version if you would like (and then accept that version). Before you go to the purpose statements page, take a moment to review your root values and core characteristics below."
 				/>
 				<div className="grid grid-cols-2 gap-x-4">
 					<div className="flex flex-col gap-2">

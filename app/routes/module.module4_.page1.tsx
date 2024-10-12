@@ -60,7 +60,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 	const openai = new OpenAI();
 
-	for (let i = 0; i < 5; i++) {
+	for (let i = 0; i < 3; i++) {
 		const completion = await openai.chat.completions.create({
 			messages: [{ role: "user", content: promptInstruction }],
 			model: "gpt-3.5-turbo",

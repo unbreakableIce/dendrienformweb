@@ -93,6 +93,7 @@ async function getUserProfile(userId: string): Promise<UserDTO | undefined> {
         userName: profile.userName || '',
         birthDate: profile.birthDate || '',
         location: profile.location || '',
+        coreValues: profile.coreValues || [],
       }
 
       return userDTO;
@@ -102,6 +103,43 @@ async function getUserProfile(userId: string): Promise<UserDTO | undefined> {
   } catch (error) {
     console.error("Error fetching user profile:", error);
     // throw error;
+  }
+}
+
+async function saveCoveValues(userId: string, coreValues: string[]) {
+  // Check if inputs are not empty
+  if (!userId || !coreValues) {
+    console.error("Missing required inputs");
+    return;
+  }
+
+  try {
+    // Query by userId in Cosmos DB
+    const querySpec = {
+      query: "SELECT * FROM c WHERE c.userId = @userId",
+      parameters: [
+        { name: "@userId", value: userId }
+      ]
+    };
+
+    const { resources: results } = await container.items.query(querySpec).fetchAll();
+
+    if (results.length > 0) {
+      const existingProfile = results[0];
+
+      if (existingProfile) {
+        // Update existing user profile
+        const { resource: updatedProfile } = await container.item(existingProfile.id, existingProfile.userId).replace({
+          ...existingProfile,
+          coreValues
+        });
+        console.log("Updated user profile:", updatedProfile);
+      } else {
+        console.error("User profile not found:", userId);
+      }
+    }
+  } catch (error) {
+    console.error("Error saving core values:", error);
   }
 }
 

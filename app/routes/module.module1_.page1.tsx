@@ -127,7 +127,7 @@ export default function FirstPage() {
 				<button
 					onClick={() => setshow(true)}
 					disabled={userValues.length === 5}
-					className="outline outline-2 outline-offset-2 outline-[#454545] rounded-lg px-6 py-2 flex flex-col gap-4 justify-center content-center flex-wrap w-40"
+					className="outline outline-2 outline-offset-2 outline-[#f457c7] rounded-lg px-6 py-2 flex flex-col gap-4 justify-center content-center flex-wrap w-40"
 					type="button"
 				>
 					{/*
@@ -138,7 +138,7 @@ export default function FirstPage() {
 						height="70px"
 					/>
 					*/}
-					<span>Add value</span>
+					<span>Add a value</span>
 				</button>
 				{buttonList}
 			</div>
@@ -183,9 +183,8 @@ const ModalAddValue = ({
 
 	return (
 		<div
-			className={`h-screen w-screen fixed top-0 left-0 bg-gray-600/80 z-10 flex flex-wrap justify-center content-center ${
-				isOpen ? "" : "hidden"
-			}`}
+			className={`h-screen w-screen fixed top-0 left-0 bg-gray-600/80 z-10 flex flex-wrap justify-center content-center ${isOpen ? "" : "hidden"
+				}`}
 			onClick={onClose}
 		>
 			<form

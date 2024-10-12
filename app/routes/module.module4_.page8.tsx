@@ -35,14 +35,14 @@ export default function Page8Module4() {
 			nextEnabled={true}
 		>
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16  items-center m-32">
-				<h3 className="sm:text-3xl font-bold font-mono text-center">
+				<h3 className="sm:text-3xl font-bold text-center">
 					You have now completed the Lifespace Expressions module. Congratulations! Click Next Module to move on to the next module.
 				</h3>
 
 			</div>
 			{/*
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16 items-center sm:m-32">
-				<h3 className="sm:text-3xl font-bold font-mono text-center">
+				<h3 className="sm:text-3xl font-bold text-center">
 					You have now completed all available modules. Congratulations! We hope
 					this experience produced some powerful insights that you will be able
 					to use in your daily life.

@@ -37,7 +37,7 @@ export default function FinalModule2() {
 			nextEnabled={true}
 		>
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16  items-center m-32">
-				<h2 className="text-3xl font-bold font-mono text-center">
+				<h2 className="text-3xl font-bold text-center">
 					Well done! You have now completed the Core Characteristics module.
 				</h2>
 			</div>

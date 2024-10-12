@@ -55,7 +55,7 @@ export default function Modules() {
 					<button
 						name="_action"
 						value="module1"
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d1 ? "" : "bg-[#b7b1ae]"
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-h-[125px] min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d1 ? "" : "bg-[#b7b1ae]"
 							}`}
 					>
 						<div className="flex flex-wrap ">
@@ -69,7 +69,7 @@ export default function Modules() {
 							/>
 							*/}
 						</div>
-						<div className="text-left">
+						<div className="text-left ">
 							<h3 className="text-lg font-semibold">Root Values</h3>
 							<p>
 								Your root values reflect what you've identified as the most important to you in life.
@@ -82,7 +82,7 @@ export default function Modules() {
 						name="_action"
 						value="module2"
 						disabled={d1}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d2 ? "" : "bg-[#b7b1ae]"
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-h-[125px] min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d2 ? "" : "bg-[#b7b1ae]"
 							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
@@ -111,7 +111,7 @@ export default function Modules() {
 						name="_action"
 						value="module3"
 						disabled={d2}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d3 ? "" : "bg-[#b7b1ae]"
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-h-[125px] min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d3 ? "" : "bg-[#b7b1ae]"
 							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
@@ -129,7 +129,7 @@ export default function Modules() {
 							<h3 className="text-lg font-semibold">Life Purpose</h3>
 							<p>
 								A life purpose is the manifestation of your highest values
-								within the context of your core characteristics.{" "}
+								within the context of your core characteristics.
 							</p>
 						</div>
 					</button>
@@ -139,7 +139,7 @@ export default function Modules() {
 						name="_action"
 						value="module4"
 						disabled={d3}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-h-[125px] min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
 							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
@@ -166,7 +166,7 @@ export default function Modules() {
 						name="_action"
 						value="module5"
 						disabled={d3}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-h-[125px] min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
 							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
@@ -192,7 +192,7 @@ export default function Modules() {
 						name="_action"
 						value="module6"
 						disabled={d3}
-						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
+						className={`flex gap-6 border-2 border-[#454545] px-4 py-2 rounded-lg min-h-[125px] min-w-[350px] max-w-[500px] hover:bg-[#ffffff] disabled:cursor-not-allowed disabled:bg-gray-300 disabled:hover:bg-gray-300 ${d4 ? "" : "bg-[#b7b1ae]"
 							}`}
 					>
 						<div className="flex flex-wrap justify-center content-center">
@@ -208,7 +208,7 @@ export default function Modules() {
 						<div className="text-left">
 							<h3 className="text-lg font-semibold">Individual Report</h3>
 							<p>
-								View your True Ideals, Latent Value Themes, and a summary of your profile.
+								View your summary report, including our assessment of the fundamental ideals that reflect the essence of who you are and what's most important to you.
 							</p>
 						</div>
 					</button>

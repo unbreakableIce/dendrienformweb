@@ -67,7 +67,7 @@ export default function Module2Form1() {
 			<TextComponent
 				text="This next exercise is designed to help you explore the most important
 					ways you define and describe yourself, which we will simply call your
-					identities. Just as with the values exercise, there are no right or
+					core characteristics. Just as with the values exercise, there are no right or
 					wrong answers here. How you define yourself is up to you, and no one
 					can tell you who you are or who you should be. That's for you to
 					determine."

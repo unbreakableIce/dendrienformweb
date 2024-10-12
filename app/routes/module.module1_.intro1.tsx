@@ -38,20 +38,44 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 		.at(-1);
 
 	const [s1, s2, s3, userProfile] = await Promise.all([
+
+		// s1 are the top 15 values
+		// s2 are the top 10 values
+		// s3 are the top 5 values
+
 		redis.get(`m1p1#${user.user.userId}`),
 		redis.get(`m1p2#${user.user.userId}`),
 		redis.get(`m1p3#${user.user.userId}`),
 		getUserProfile(user.user.userId),
 	]);
 
+	const top5coreValues = userProfile?.coreValues?.filter((cv) => cv.rank <= 5) || [];
+	const top10coreValues = userProfile?.coreValues?.filter((cv) => cv.rank <= 10) || [];
+	const top15coreValues = userProfile?.coreValues?.filter((cv) => cv.rank <= 15) || [];
+
+
+	// If the user has already completed the module, redirect them to the last completed page
 	if (previous === "/module") {
+
+		if (top5coreValues.length === 5) {
+			return redirect("/module/module1/page4");
+		}
+
 		if (s3) {
 			return redirect("/module/module1/page4");
+		}
+	
+		if (top10coreValues.length === 10) {
+			return redirect("/module/module1/page3");
 		}
 
 		if (s2) {
 			return redirect("/module/module1/page3");
 		}
+
+		if (top15coreValues.length === 15) {
+			return redirect("/module/module1/page2");
+		}	
 
 		if (s1) {
 			return redirect("/module/module1/page2");

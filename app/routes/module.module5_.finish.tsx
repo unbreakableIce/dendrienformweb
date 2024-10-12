@@ -36,7 +36,7 @@ export default function Module5FinishPage() {
 			nextEnabled={true}
 		>
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16  items-center m-32">
-				<h3 className="sm:text-3xl font-bold font-mono text-center">
+				<h3 className="sm:text-3xl font-bold text-center">
 					You have now completed the Aspirations module. Congratulations! Click Next Module to move on to see your User Report.
 				</h3>
 

@@ -59,7 +59,7 @@ export default function FifthModule5() {
 			<div className="w-full h-full relative">
 				<div className="flex flex-col gap-6 px-8 justify-start">
 					<h3 className="text-2xl text-center">
-						The five most important core characteristics you selected
+						Here are the five core characteristics that you selected.
 					</h3>
 					<TextComponent
 						text="Please review the core characteristics below.

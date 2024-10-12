@@ -3,7 +3,7 @@ import {
 	ArrowLongRightIcon,
 	ArrowLongLeftIcon,
 } from "@heroicons/react/24/outline";
-import {ActionFunctionArgs, LoaderFunctionArgs, redirect} from "@remix-run/node";
+import { ActionFunctionArgs, LoaderFunctionArgs, redirect } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import SummaryContainer from "~/components/layout/SummaryContainer";
 import { authenticator } from "~/utils/auth.server";
@@ -37,21 +37,19 @@ export default function ThirdPageModule3() {
 			nextEnabled={true}
 		>
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16  items-center m-32">
-				<h3 className="text-3xl font-bold font-mono text-center">
+				<h3 className="text-3xl font-bold text-center">
 					You now have a life purpose statement! Congratulations.
 				</h3>
-				<h4 className="text-xl font-bold font-mono text-center w-8/12">
-					If you did not write it down or copy it to the clipboard, you might
-					want to click the Summary button below to go back and do so before
-					moving forward with the next module.
+				<h4 className="text-xl font-bold  text-center w-8/12">
+					If you did not write it down or copy it to the clipboard, click the Module Summary button to go back and do so before moving forward with the next module.
 				</h4>
 			</div>
 			{/*
 			<div className="flex flex-col gap-8 content-center flex-wrap px-16 items-center m-32">
-				<h3 className="text-3xl font-bold font-mono text-center">
+				<h3 className="text-3xl font-bold text-center">
 					You now have a life purpose statement! Congratulations.
 				</h3>
-				<h4 className="text-xl font-bold font-mono text-center w-8/12">
+				<h4 className="text-xl font-bold text-center w-8/12">
 					If you did not write it down or copy it to the clipboard, you might
 					want to click the Summary button below to go back and do so before
 					moving forward with the next module.

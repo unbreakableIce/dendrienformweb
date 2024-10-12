@@ -116,8 +116,7 @@ export default function Page1Module3() {
 		<Container2 key={key} pageTitle="Why Am I Here?">
 			<div>
 				<TextComponent
-					text="If you want to move an old purpose statement up to the top box to edit and/or accept it,
-					 simply click on it."
+					text="Select any purpose statement on this page to move it up to the top box where you can edit it. When you are satisfied with your purpose statement, click 'Accept' to move to the next module"
 				/>
 				<div>
 					{isSubmitting && <Spinner />}
